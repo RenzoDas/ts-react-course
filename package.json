@@ -1,0 +1,22 @@
+{
+  "name": "ts-course",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.ts",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RenzoDDA/ts-react-course.git"
+  },
+  "author": "Renzo D'AStolfi De Angeli",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RenzoDDA/ts-react-course/issues"
+  },
+  "homepage": "https://github.com/RenzoDDA/ts-react-course#readme",
+  "dependencies": {
+    "typescript": "^5.3.3"
+  }
+}
