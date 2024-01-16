@@ -31,7 +31,9 @@ ECMAScript è uno standard di scripting languages sviluppato e mantenuto da Ecma
 In JavaScript, le variabili sono usate per memorizzare dati che possono variare nel tempo. Ci sono tre modi per dichiarare una variabile:
 
 1. **let:** Introdotto in ES6 (ECMAScript 2015), `let` permette di dichiarare variabili limitate al blocco di codice in cui vengono usate, a una variable dichiarata usando `let` le si può assegnare un nuovo valore in qualsiasi momento.
+
 2. **const:** Anche questo introdotto in ES6, `const` è utilizzato per dichiarare variabili il cui valore non dovrebbe cambiare.
+
 3. **var:** Il modo più vecchio per dichiarare variabili. È sconsigliato a causa del suo ambito funzionale piuttosto che blocco, e per il suo comportamento di "hoisting" (le dichiarazioni var vengono spostate in cima al blocco).
 
 ### Perché `var` è Deprecato?

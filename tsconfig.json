@@ -21,6 +21,7 @@
   ],
   "exclude": [
     "node_modules", // Exclude the node_modules directory
-    "**/*.spec.ts" // Exclude test files
+    "**/*.spec.ts", // Exclude test files
+    "**/*.js" // Exclude javascript files
   ]
 }

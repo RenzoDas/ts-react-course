@@ -1,29 +1,12 @@
 /*
- * ESERCIZI PRATICI - Fondamenti di JavaScript + TypeScript
+ * ESERCIZI PRATICI - Fondamenti di JavaScript
  * --------------------------------------------------------
  * Questo documento contiene esercizi pratici per comprendere
- * i fondamenti di JavaScript e TypeScript.
+ * i fondamenti di JavaScript.
  */
 
 ////////////////////////////////////////////////////////////
-// ESERCIZIO 1: Dichiarazioni di Variabili
-////////////////////////////////////////////////////////////
-
-// Let: Usato per dichiarare variabili con scope di blocco.
-
-// Const: Usato per dichiarare costanti con scope di blocco.
-
-// Var: Usato in passato per dichiarare variabili con scope funzionale.
-
-/*
- * NOTA:
- * 1) Perché non si usa più 'var'?
- *    - 'var' ha uno scope funzionale e può causare problemi di visibilità e sovrascrittura.
- *    - 'let' e 'const' hanno uno scope di blocco, offrendo una gestione più precisa e sicura.
- */
-
-////////////////////////////////////////////////////////////
-// ESERCIZIO 2: Tipi di Dati
+// ESERCIZIO 1: Tipi di Dati
 ////////////////////////////////////////////////////////////
 
 // Stringhe: Rappresentano testo.
@@ -46,13 +29,35 @@
  */
 
 ////////////////////////////////////////////////////////////
+// ESERCIZIO 2: Dichiarazioni di Variabili
+////////////////////////////////////////////////////////////
+
+// Let: Usato per dichiarare variabili con scope di blocco.
+
+// Const: Usato per dichiarare costanti con scope di blocco.
+
+// Var: Usato in passato per dichiarare variabili con scope funzionale.
+
+/*
+ * NOTA:
+ * 1) Perché non si usa più 'var'?
+ *    - 'var' ha uno scope funzionale e può causare problemi di visibilità e sovrascrittura.
+ *    - 'let' e 'const' hanno uno scope di blocco, offrendo una gestione più precisa e sicura.
+ *
+ * BEST PRACTICES:
+ * 1) Non usare MAI var per dichiare una variabile
+ * 2) Dichiarare sempre le variabili facendo uso di const e solo se tornera neccesario
+ * riassegnare il valore cambiare la dichiarazzione a let.
+ */
+
+////////////////////////////////////////////////////////////
 // ESERCIZIO 3: Operatori
 ////////////////////////////////////////////////////////////
 
 // Aritmetici: (+, -, *, /, %)
 // Di Assegnazione: (=, +=, -=, *=, /=)
 // Di Confronto: (==, ===, !=, !==)
-// Logici: (&&, ||, !)
+// Logici: (&&, ||, !, ??)
 
 /**
  * NOTE:
