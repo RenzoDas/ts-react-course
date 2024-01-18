@@ -167,11 +167,10 @@
 ////////////////////////////////////////////////////////////
 
 /**
- * Dato un array di oggetti che rappresentano prodotti di un negozio online,
- * ogni oggetto contiene nome, categoria, prezzo e disponibilità.
- * Scrivi una funzione che restituisca un nuovo array con solo i prodotti disponibili,
- * con un prezzo ridotto del 10% per quelli nella categoria "elettronica".
- * di un oggetto e poi stampa ogni coppia.
+ * Dato un oggetto che rappresenta un sistema di prenotazioni con diverse date, 
+ * ognuna con un array di orari disponibili, scrivi una funzione che, data una
+ *  specifica data e un orario, aggiorna il sistema per rimuovere quell'orario 
+ * dalla disponibilità. Se l'orario non è disponibile, stampa un messaggio di errore.
  */
 
 // Implementa la soluzione qui
