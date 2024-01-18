@@ -135,3 +135,43 @@
  * Utilizza Object.entries() per ottenere un array di coppie [chiave, valore]
  * di un oggetto e poi stampa ogni coppia.
  */
+
+////////////////////////////////////////////////////////////
+// ESERCIZIO 15: Filtraggio e Trasformazione di Dati di un Negozio Online
+////////////////////////////////////////////////////////////
+
+/**
+ * Dato un array di oggetti che rappresentano prodotti di un negozio online,
+ * ogni oggetto contiene nome, categoria, prezzo e disponibilità.
+ * Scrivi una funzione che restituisca un nuovo array con solo i prodotti disponibili,
+ * con un prezzo ridotto del 10% per quelli nella categoria "elettronica".
+ * di un oggetto e poi stampa ogni coppia.
+ */
+
+// Implementa la soluzione qui
+
+////////////////////////////////////////////////////////////
+// ESERCIZIO 16: Analisi di Dati Studenteschi
+////////////////////////////////////////////////////////////
+
+/**
+ * Dato un array di oggetti che rappresentano studenti, con nome, cognome, e un array di voti,
+ * scrivi una funzione che stampi il nome completo di ogni studente insieme alla sua media voti.
+ * Se la media è inferiore a 6, stampa anche un messaggio di "insufficiente".
+ */
+
+// Implementa la soluzione qui
+
+////////////////////////////////////////////////////////////
+// ESERCIZIO 17: Gestione di un Sistema di Prenotazioni
+////////////////////////////////////////////////////////////
+
+/**
+ * Dato un array di oggetti che rappresentano prodotti di un negozio online,
+ * ogni oggetto contiene nome, categoria, prezzo e disponibilità.
+ * Scrivi una funzione che restituisca un nuovo array con solo i prodotti disponibili,
+ * con un prezzo ridotto del 10% per quelli nella categoria "elettronica".
+ * di un oggetto e poi stampa ogni coppia.
+ */
+
+// Implementa la soluzione qui
