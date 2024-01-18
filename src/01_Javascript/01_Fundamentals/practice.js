@@ -11,16 +11,53 @@
 
 // Stringhe: Rappresentano testo.
 
+let nome = "G"
+const nome1 = "Giuseppe"
+const nome2 = `Giuseppe ${nome}`
+
+console.log(nome.toUpperCase())
+
 // Numeri: Includono sia interi che float.
+// const numero = 2
+// const numeroFloat = 2.5
 
 // Booleani: Valori veri o falsi.
 
+const vero = true
 // Oggetti: Collezioni di proprietà.
 
+const Persona = {
+  name: "Giuseppe",
+  age: 20,
+}
+
+const citta = {
+  name: "Rossano",
+  cap: 87064,
+}
+
+const Persona2 = { ...Persona, citta: { ...citta, regione: "Calabria" } }
+
+const { city, ...ciao } = Persona2
+
+console.log(ciao)
 // Arrays: Liste ordinate di elementi.
 
-// Undefined e Null: Rappresentano l'assenza di un valore.
+const array = ["Renzo", "Giuseppe"]
 
+const array2 = new Array(5, "ciao", "ciao", "ciao")
+
+console.log(array2)
+array.push("G")
+console.log(array)
+
+const [renzo, ...rest] = array
+
+// Undefined e Null: Rappresentano l'assenza di un valore.
+let pipòo
+let gioco = null
+
+console.log(pipòo)
 /**
  * NOTA:
  * 1) ES6 - Destructuring:
@@ -55,9 +92,36 @@
 ////////////////////////////////////////////////////////////
 
 // Aritmetici: (+, -, *, /, %)
+
+const numero = 9
+const numero1 = 4
+
+const sum = (/** @type {string} */ first, /** @type {number} */ second) => {
+  console.log(first % second)
+}
+
+sum()
+const numeroDivisibile = (a, b) => {
+  console.log(a % b === 0)
+}
+
+numeroDivisibile(numero, numero1)
+
+let cosa
+
+cosa = 30
+
+cosa -= 4
+
+console.log(cosa)
+
 // Di Assegnazione: (=, +=, -=, *=, /=)
 // Di Confronto: (==, ===, !=, !==)
 // Logici: (&&, ||, !, ??)
+
+let test = null ?? "Ciao"
+
+console.log(test)
 
 /**
  * NOTE:
