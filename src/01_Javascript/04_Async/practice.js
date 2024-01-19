@@ -62,16 +62,7 @@
  */
 
 ////////////////////////////////////////////////////////////
-// ESERCIZIO 7: Async/Await con Parallelismo
-////////////////////////////////////////////////////////////
-
-/**
- * Crea più funzioni che ritornano Promises.
- * Usa `async/await` per attendere che tutte le Promises siano risolte usando `Promise.all`.
- */
-
-////////////////////////////////////////////////////////////
-// ESERCIZIO 8: Fetch API con Async/Await
+// ESERCIZIO 7: Fetch API con Async/Await
 ////////////////////////////////////////////////////////////
 
 /**
@@ -81,19 +72,23 @@
  */
 
 ////////////////////////////////////////////////////////////
-// ESERCIZIO 9: Timeout con Promise
+// ESERCIZIO 8: Timeout con Promise
 ////////////////////////////////////////////////////////////
 
 /**
  * Crea una funzione che restituisce una Promise che si risolve o si rifiuta
  * basata su un timeout. Se l'operazione è troppo lunga, la Promise dovrebbe essere rifiutata.
  */
-
 ////////////////////////////////////////////////////////////
-// ESERCIZIO 10: Custom Promise
+// ESERCIZIO 9: Promise.all e Gestione degli Errori in Async/Await con Diverse Fonti
 ////////////////////////////////////////////////////////////
 
 /**
- * Scrivi una funzione che crea e ritorna una nuova Promise.
- * La Promise dovrebbe risolversi con un valore specifico dopo un ritardo.
+ * Crea una funzione asincrona che utilizza async/await per richiamare dati da due diverse API
+ * (ad esempio, dati meteo e dati di borsa).
+ * Usa Promise.all per gestire entrambe le richieste in parallelo.
+ * Implementa un controllo degli errori dettagliato con try/catch per gestire situazioni come
+ * la mancanza di risposta da una delle API, o errori nei dati ricevuti. Stampa i risultati o
+ * i messaggi di errore in base al caso.
+ *
  */
