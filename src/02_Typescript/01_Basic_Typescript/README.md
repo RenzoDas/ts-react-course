@@ -677,13 +677,11 @@ interface Nome {
   nome: string
 }
 
-interface Età {
+interface Eta {
   età: number
 }
 
-type Persona = Nome & Età
-
-let persona: Persona = { nome: "Alice", età: 30 }
+let persona: Nome & Eta = { nome: "Alice", età: 30 }
 ```
 
 #### Esempio con Tipi Complessi
