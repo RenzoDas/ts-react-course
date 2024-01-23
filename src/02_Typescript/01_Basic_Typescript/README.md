@@ -697,9 +697,7 @@ interface Manager {
   convocaRiunione(): void
 }
 
-type Direttore = Lavoratore & Manager
-
-let direttore: Lavoratore & Manager = {
+const direttore: Lavoratore & Manager = {
   id: 1,
   nome: "Bob",
   dipartimento: "IT",
