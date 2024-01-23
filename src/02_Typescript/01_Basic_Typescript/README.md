@@ -699,7 +699,7 @@ interface Manager {
 
 type Direttore = Lavoratore & Manager
 
-let direttore: Direttore = {
+let direttore: Lavoratore & Manager = {
   id: 1,
   nome: "Bob",
   dipartimento: "IT",
