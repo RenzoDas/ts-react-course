@@ -119,6 +119,32 @@ Questo esercizio ti aiuterà a comprendere come gestire scenari complessi e tipi
 */
 
 ////////////////////////////////////////////////////////////
+// ESERCIZIO 9.1: Tipi Discriminati
+////////////////////////////////////////////////////////////
+
+/**
+
+Esercizio 1: Tipi Discriminati
+
+Supponiamo di avere un'interfaccia Prodotto che rappresenta un prodotto con due campi: tipo e prezzo. 
+Il campo tipo discrimina tra i tipi di prodotto. 
+Implementare una funzione chiamata calcolaSconto che prende un prodotto come argomento e restituisce il prezzo 
+con uno sconto del 10% se il tipo del prodotto è "sconto". Altrimenti, restituire il prezzo senza sconto.
+*/
+
+////////////////////////////////////////////////////////////
+// ESERCIZIO 9.1: Tipi Discriminati
+////////////////////////////////////////////////////////////
+
+/**
+
+Esercizio 1: Tipi Avanzati
+
+Supponiamo di avere un array di oggetti con diversi tipi di dati. 
+Creare una funzione chiamata filtraStringhe che prende un array e restituisce un nuovo array contenente solo le stringhe dall'array originale.
+*/
+
+////////////////////////////////////////////////////////////
 // ESERCIZIO 10: Esplorazione delle Opzioni di Compilazione
 ////////////////////////////////////////////////////////////
 
