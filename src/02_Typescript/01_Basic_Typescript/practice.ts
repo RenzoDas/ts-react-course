@@ -133,7 +133,7 @@ con uno sconto del 10% se il tipo del prodotto è "sconto". Altrimenti, restitui
 */
 
 ////////////////////////////////////////////////////////////
-// ESERCIZIO 9.1: Tipi Discriminati
+// ESERCIZIO 9.2: Tipi Discriminati
 ////////////////////////////////////////////////////////////
 
 /**
