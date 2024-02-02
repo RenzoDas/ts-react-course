@@ -1,12 +1,12 @@
-#Desing pattern in JS/TS
+# Desing pattern in JS/TS
 
-##JS e TS Design pattern
+## JS e TS Design pattern
 
 
-###Esempio di Scenario
+### Esempio di Scenario
 Immaginiamo di avere un sistema che si aspetta dati in un certo formato, ma abbiamo una fonte di dati che fornisce tali dati in un formato diverso. Useremo il pattern Adapter per convertire i dati dal formato fornito al formato atteso.
 
-###Implementazione 
+### Implementazione 
 Supponiamo che il nostro sistema si aspetta dati con le proprietà name e age, ma la nostra fonte di dati fornisce oggetti con le proprietà firstName, lastName e years.
 
 ```javascript
