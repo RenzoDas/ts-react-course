@@ -49,45 +49,53 @@ Immagina di dover gestire una configurazione globale all'interno di una applicaz
 
 ``` javascript
 
-class GlobalConfig {
-  private static instance: GlobalConfig | null = null;
-  private configData: {
-    apiUrl: string;
-    apiKey: string;
-    time: number;
-  };
+interface ConfigData {
+  apiUrl: string;
+  apiKey: string;
+  time: number;
+}
 
-  private constructor() {
-    // Inizializzazione dei dati di configurazione
-    this.configData = {
+type Singleton = {
+  getInstance: () => ConfigData;
+};
+
+const GlobalConfig: Singleton = (() => {
+  let instance: ConfigData;
+  let configData: ConfigData;
+
+  function createInstance(): ConfigData {
+    // Creazione dell'oggetto di configurazione
+    const config: ConfigData = {
       apiUrl: "https://api.example.com",
       apiKey: "your-api-key",
       time: Date.now(),
     };
+
+    // Metodo per ottenere i dati di configurazione
+    configData = config;
+
+    return config;
   }
 
-  public static getInstance(): GlobalConfig {
-    if (!GlobalConfig.instance) {
-      GlobalConfig.instance = new GlobalConfig();
-    }
-    return GlobalConfig.instance;
-  }
-
-  public getConfig(): { apiUrl: string; apiKey: string; time: number } {
-    return this.configData;
-  }
-}
+  return {
+    getInstance: () => {
+      if (!instance) {
+        instance = createInstance();
+      }
+      return instance;
+    },
+  };
+})();
 
 // Utilizzo della configurazione globale
 const globalConfigInstance1 = GlobalConfig.getInstance();
-console.log(globalConfigInstance1.getConfig()); // Output: { apiUrl: "https://api.example.com", apiKey: "your-api-key", time: timestamp }
+console.log(globalConfigInstance1); // Output: { apiUrl: "https://api.example.com", apiKey: "your-api-key", time: timestamp }
 
 const globalConfigInstance2 = GlobalConfig.getInstance();
-console.log(globalConfigInstance2.getConfig()); // Output: { apiUrl: "https://api.example.com", apiKey: "your-api-key", time: timestamp }
+console.log(globalConfigInstance2); // Output: { apiUrl: "https://api.example.com", apiKey: "your-api-key", time: timestamp }
 
 // Entrambe le istanze puntano allo stesso oggetto di configurazione globale
 console.log(globalConfigInstance1 === globalConfigInstance2); // Output: true
-
 
 ``` 
 
