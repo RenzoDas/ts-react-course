@@ -233,3 +233,56 @@ observable.notifyObservers("Evento importante!");
 ```
 
 In questo esempio, abbiamo creato un sistema di notifica senza l'utilizzo di classi. Abbiamo definito una funzione createObservable per creare un oggetto soggetto osservabile, e una funzione createObserver per creare osservatori. Gli osservatori sono semplici funzioni che vengono chiamate quando il soggetto notifica un evento.
+
+## Factory
+Nell'ambito dello sviluppo software, il Factory Pattern è un design pattern creazionale che fornisce un'interfaccia per creare oggetti in una superclasse, ma consente alle sottoclassi di alterare il tipo di oggetti che verranno creati. Questo approccio è particolarmente utile quando si hanno diverse sottoclassi che condividono un'interfaccia comune. In TypeScript, possiamo implementare il Factory Pattern senza utilizzare classi, sfruttando invece i tipi e le funzioni per creare una varietà di oggetti. Di seguito è presentato un esempio pratico che dimostra come creare diversi tipi di veicoli—auto, moto e biciclette—utilizzando una funzione di fabbrica basata su condizioni specifiche per ogni tipo di veicolo. 
+
+### Esempio di Scenario:
+
+Supponiamo di dover creare diversi tipi di veicoli (auto, moto, biciclette) utilizzando un design pattern Factory senza utilizzare classi.
+
+### Implementazione:
+
+``` typescript
+
+// Definizione dei tipi di veicoli
+type VehicleType = 'car' | 'motorcycle' | 'bicycle';
+
+// Funzione di fabbrica per creare veicoli
+const createVehicle = (type: VehicleType) => {
+  switch (type) {
+    case 'car':
+      return {
+        type: 'car',
+        wheels: 4,
+        engine: 'combustion',
+      };
+    case 'motorcycle':
+      return {
+        type: 'motorcycle',
+        wheels: 2,
+        engine: 'internal combustion',
+      };
+    case 'bicycle':
+      return {
+        type: 'bicycle',
+        wheels: 2,
+        engine: 'muscle power',
+      };
+    default:
+      throw new Error('Tipo di veicolo non valido');
+  }
+};
+
+// Utilizzo della funzione di fabbrica per creare veicoli
+const car = createVehicle('car');
+const motorcycle = createVehicle('motorcycle');
+const bicycle = createVehicle('bicycle');
+
+console.log(car);         // Output: { type: 'car', wheels: 4, engine: 'combustion' }
+console.log(motorcycle);  // Output: { type: 'motorcycle', wheels: 2, engine: 'internal combustion' }
+console.log(bicycle);     // Output: { type: 'bicycle', wheels: 2, engine: 'muscle power' }
+
+```
+
+In questo esempio, abbiamo creato una funzione di fabbrica createVehicle che prende un tipo di veicolo come argomento e restituisce un oggetto con le specifiche del veicolo. Utilizzando questa funzione di fabbrica, possiamo creare diverse istanze di veicoli senza dover definire classi specifiche per ciascun tipo di veicolo.
