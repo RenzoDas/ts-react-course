@@ -111,3 +111,69 @@ Altri contesti concorrenti
 - WebAssembly
 
 
+## Observer
+
+### Esempio di Scenario:
+
+Immagina di dover implementare un sistema di notifica in un'applicazione TypeScript. Vuoi che diversi componenti dell'applicazione possano ricevere notifiche quando determinati eventi accadono, senza utilizzare classi per l'implementazione.
+
+###  Implementazione:
+
+```typescript
+
+// Creazione di un oggetto soggetto osservabile
+const createObservable = () => {
+  const observers: ObserverCallback[] = [];
+
+  const addObserver = (observer: ObserverCallback) => {
+    observers.push(observer);
+  };
+
+  const removeObserver = (observer: ObserverCallback) => {
+    const index = observers.indexOf(observer);
+    if (index !== -1) {
+      observers.splice(index, 1);
+    }
+  };
+
+  const notifyObservers = (data: any) => {
+    for (const observer of observers) {
+      observer(data);
+    }
+  };
+
+  return {
+    addObserver,
+    removeObserver,
+    notifyObservers,
+  };
+};
+
+// Creazione di un osservatore
+const createObserver = () => {
+  const update = (data: any) => {
+    console.log(`Osservatore ricevuto un aggiornamento: ${data}`);
+  };
+
+  return update;
+};
+
+// Utilizzo del pattern Observer
+const observable = createObservable();
+const observer1 = createObserver();
+const observer2 = createObserver();
+
+// Aggiunta degli osservatori all'oggetto osservabile
+observable.addObserver(observer1);
+observable.addObserver(observer2);
+
+// Simulazione di un evento che notifica gli osservatori
+observable.notifyObservers("Evento importante!");
+
+// Output:
+// Osservatore ricevuto un aggiornamento: Evento importante!
+// Osservatore ricevuto un aggiornamento: Evento importante!
+
+```
+
+In questo esempio, abbiamo creato un sistema di notifica senza l'utilizzo di classi. Abbiamo definito una funzione createObservable per creare un oggetto soggetto osservabile, e una funzione createObserver per creare osservatori. Gli osservatori sono semplici funzioni che vengono chiamate quando il soggetto notifica un evento.
