@@ -120,6 +120,8 @@ Immagina di dover implementare un sistema di notifica in un'applicazione TypeScr
 ###  Implementazione:
 
 ```typescript
+// Definizione del tipo per i callback degli osservatori
+type ObserverCallback = (data: any) => void;
 
 // Creazione di un oggetto soggetto osservabile
 const createObservable = () => {
