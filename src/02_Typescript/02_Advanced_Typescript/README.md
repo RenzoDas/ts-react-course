@@ -245,27 +245,31 @@ Supponiamo di dover creare diversi tipi di veicoli (auto, moto, biciclette) util
 
 ``` typescript
 
-// Definizione dei tipi di veicoli
-type VehicleType = 'car' | 'motorcycle' | 'bicycle';
+// Definizione degli enum per i tipi di veicoli
+enum VehicleType {
+  Car = 'car',
+  Motorcycle = 'motorcycle',
+  Bicycle = 'bicycle',
+}
 
 // Funzione di fabbrica per creare veicoli
 const createVehicle = (type: VehicleType) => {
   switch (type) {
-    case 'car':
+    case VehicleType.Car:
       return {
-        type: 'car',
+        type: VehicleType.Car,
         wheels: 4,
         engine: 'combustion',
       };
-    case 'motorcycle':
+    case VehicleType.Motorcycle:
       return {
-        type: 'motorcycle',
+        type: VehicleType.Motorcycle,
         wheels: 2,
         engine: 'internal combustion',
       };
-    case 'bicycle':
+    case VehicleType.Bicycle:
       return {
-        type: 'bicycle',
+        type: VehicleType.Bicycle,
         wheels: 2,
         engine: 'muscle power',
       };
@@ -275,13 +279,14 @@ const createVehicle = (type: VehicleType) => {
 };
 
 // Utilizzo della funzione di fabbrica per creare veicoli
-const car = createVehicle('car');
-const motorcycle = createVehicle('motorcycle');
-const bicycle = createVehicle('bicycle');
+const car = createVehicle(VehicleType.Car);
+const motorcycle = createVehicle(VehicleType.Motorcycle);
+const bicycle = createVehicle(VehicleType.Bicycle);
 
 console.log(car);         // Output: { type: 'car', wheels: 4, engine: 'combustion' }
 console.log(motorcycle);  // Output: { type: 'motorcycle', wheels: 2, engine: 'internal combustion' }
 console.log(bicycle);     // Output: { type: 'bicycle', wheels: 2, engine: 'muscle power' }
+
 
 ```
 
