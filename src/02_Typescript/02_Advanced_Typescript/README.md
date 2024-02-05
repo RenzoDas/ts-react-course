@@ -95,3 +95,19 @@ console.log(globalConfigInstance1 === globalConfigInstance2); // Output: true
 ``` 
 
 In questo esempio, abbiamo implementato un Singleton chiamato GlobalConfig che gestisce una configurazione globale. Le istanze di GlobalConfig possono accedere ai dati di configurazione, ma assicurano che ci sia una sola istanza condivisa in tutto il codice.
+
+
+## NOTA SINGLE THREAD
+JavaScript è principalmente single-threaded, il che significa che esegue un'unica sequenza di operazioni alla volta nel contesto principale dell'interfaccia utente (UI) del browser o nell'ambiente Node.js. Questo è dovuto alla natura asincrona e al modello di event loop di JavaScript, che consente di gestire le operazioni in modo non bloccante.
+
+Tuttavia, JavaScript offre anche alcune funzionalità per la concorrenza e il multithreading attraverso:
+
+- Web Workers: I Web Workers consentono di eseguire script JavaScript in thread separati, noti come worker threads. Questi worker threads possono eseguire operazioni in background senza influenzare il thread principale dell'UI. Tuttavia, i worker threads hanno limitazioni nella condivisione di dati con il thread principale.
+
+- Async/Await e Promises: JavaScript utilizza le Promises e l'approccio Async/Await per gestire le operazioni asincrone in modo più efficiente senza bloccare il thread principale. Questo permette di scrivere codice che sembra eseguire operazioni in modo concorrente anche se è ancora eseguito in modo single-threaded.
+
+Altri contesti concorrenti
+- Node.js Cluster Module
+- WebAssembly
+
+
