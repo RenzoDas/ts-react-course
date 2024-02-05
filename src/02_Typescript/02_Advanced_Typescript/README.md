@@ -291,3 +291,76 @@ console.log(bicycle);     // Output: { type: 'bicycle', wheels: 2, engine: 'musc
 ```
 
 In questo esempio, abbiamo creato una funzione di fabbrica createVehicle che prende un tipo di veicolo come argomento e restituisce un oggetto con le specifiche del veicolo. Utilizzando questa funzione di fabbrica, possiamo creare diverse istanze di veicoli senza dover definire classi specifiche per ciascun tipo di veicolo.
+
+
+## FACADE
+
+Il pattern Facade in TypeScript è estremamente utile quando si lavora su sistemi complessi, offrendo un'interfaccia semplice per interagire con una o più sottosistemi complessi. Questo pattern è particolarmente vantaggioso in scenari di sviluppo frontend e backend, dove l'obiettivo è ridurre la complessità per gli sviluppatori e migliorare l'usabilità del sistema.
+
+### Esempio di Scenario:
+
+Immaginiamo di dover creare una "Facciata" per un sistema di gestione di un negozio online che comprende diverse operazioni complesse, come l'aggiunta di un prodotto al carrello, il calcolo del totale e il processo di pagamento.
+
+### Implementazione:
+
+``` typescript
+
+// Funzione di facciata per il sistema di gestione del negozio online
+const onlineStoreFacade = () => {
+  const cart: { [productId: string]: number } = {};
+
+  const addToCart = (productId: string, quantity: number) => {
+    if (!cart[productId]) {
+      cart[productId] = 0;
+    }
+    cart[productId] += quantity;
+  };
+
+  const calculateTotal = () => {
+    let total = 0;
+    for (const productId in cart) {
+      // Simuliamo un sistema di prezzi per ciascun prodotto
+      const price = getProductPrice(productId);
+      total += price * cart[productId];
+    }
+    return total;
+  };
+
+  const processPayment = () => {
+    // Simuliamo il processo di pagamento
+    return `Pagamento effettuato per un totale di $${calculateTotal()}`;
+  };
+
+  // Funzione per ottenere il prezzo di un prodotto (simulazione)
+  const getProductPrice = (productId: string) => {
+    // In una vera applicazione, si otterrebbero i prezzi dai dati del prodotto
+    const prices: { [productId: string]: number } = {
+      'product1': 10,
+      'product2': 20,
+      'product3': 15,
+    };
+    return prices[productId] || 0;
+  };
+
+  return {
+    addToCart,
+    calculateTotal,
+    processPayment,
+  };
+};
+
+// Utilizzo della facciata del negozio online
+const store = onlineStoreFacade();
+
+store.addToCart('product1', 2);
+store.addToCart('product2', 1);
+
+const total = store.calculateTotal();
+console.log(`Totale nel carrello: $${total}`);
+
+const paymentResult = store.processPayment();
+console.log(paymentResult); // Simula il pagamento
+``` 
+
+In questo esempio, abbiamo creato una funzione di facciata onlineStoreFacade che semplifica l'interazione con un sistema di gestione del negozio online. La facciata fornisce un'interfaccia semplificata per le operazioni di aggiunta al carrello, calcolo del totale e processo di pagamento, nascondendo i dettagli complessi. Utilizzando questa facciata, l'utente può interagire con il sistema di gestione del negozio online in modo più intuitivo senza preoccuparsi dei dettagli implementativi.
+
