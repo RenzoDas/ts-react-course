@@ -2,6 +2,58 @@
 
 ## JS e TS Design pattern
 
+## Design  pattern
+Ci sono vari tipi di design pattern, suddivisi in diverse categorie. Ecco alcune delle categorie principali di design pattern:
+
+**Creazionali**:
+
+- Singleton
+- Factory Method
+- Abstract Factory
+- Builder
+- Prototype
+
+**Strutturali**:
+
+- Adapter
+- Bridge
+- Composite
+- Decorator
+- Facade
+- Flyweight
+- Proxy
+
+**Comportamentali**:
+
+- Observer
+- Strategy
+- Command
+- Chain of Responsibility
+- State
+- Visitor
+- Template Method
+- Memento
+- Interpreter
+- Mediator
+
+**Architetturali**:
+
+- MVC (Model-View-Controller)
+- MVVM (Model-View-ViewModel)
+- Dependency Injection (Iniezione di Dipendenza)
+- Repository
+
+**Concurrency (Concorrenza)**:
+
+- Lock
+- Double-Checked Locking
+
+**Altri**:
+
+- Null Object
+- Specification
+- Publish-Subscribe
+
 ## Adapter
 
 #### Esempio di Scenario
