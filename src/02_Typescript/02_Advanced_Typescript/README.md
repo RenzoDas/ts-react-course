@@ -362,5 +362,5 @@ const paymentResult = store.processPayment();
 console.log(paymentResult); // Simula il pagamento
 ``` 
 
-In questo esempio, abbiamo creato una funzione di facciata onlineStoreFacade che semplifica l'interazione con un sistema di gestione del negozio online. La facciata fornisce un'interfaccia semplificata per le operazioni di aggiunta al carrello, calcolo del totale e processo di pagamento, nascondendo i dettagli complessi. Utilizzando questa facciata, l'utente può interagire con il sistema di gestione del negozio online in modo più intuitivo senza preoccuparsi dei dettagli implementativi.
+In questo esempio, abbiamo creato una funzione di facciata onlineStoreFacade che semplifica l'interazione con un sistema di gestione del negozio online. La facciata fornisce un'interfaccia semplificata per le operazioni di aggiunta al carrello, calcolo del totale e processo di pagamento, nascondendo i dettagli complessi. Utilizzando questa facciata, l'utente può interagire con il sistema di gestione del negozio online senza preoccuparsi dei dettagli implementativi.
 
