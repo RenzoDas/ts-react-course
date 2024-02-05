@@ -49,38 +49,34 @@ Immagina di dover gestire una configurazione globale all'interno di una applicaz
 
 ``` javascript
 
-const GlobalConfig = (() => {
-  let instance;
-  let configData;
+class GlobalConfig {
+  private static instance: GlobalConfig | null = null;
+  private configData: {
+    apiUrl: string;
+    apiKey: string;
+    time: number;
+  };
 
-  function createInstance() {
-    // Creazione dell'oggetto di configurazione
-    const config = {};
-
+  private constructor() {
     // Inizializzazione dei dati di configurazione
-    configData = {
+    this.configData = {
       apiUrl: "https://api.example.com",
       apiKey: "your-api-key",
-      time: Date.now()
+      time: Date.now(),
     };
-
-    // Metodo per ottenere i dati di configurazione
-    config.getConfig = () => {
-      return configData;
-    };
-
-    return config;
   }
 
-  return {
-    getInstance: () => {
-      if (!instance) {
-        instance = createInstance();
-      }
-      return instance;
+  public static getInstance(): GlobalConfig {
+    if (!GlobalConfig.instance) {
+      GlobalConfig.instance = new GlobalConfig();
     }
-  };
-})();
+    return GlobalConfig.instance;
+  }
+
+  public getConfig(): { apiUrl: string; apiKey: string; time: number } {
+    return this.configData;
+  }
+}
 
 // Utilizzo della configurazione globale
 const globalConfigInstance1 = GlobalConfig.getInstance();
@@ -91,6 +87,7 @@ console.log(globalConfigInstance2.getConfig()); // Output: { apiUrl: "https://ap
 
 // Entrambe le istanze puntano allo stesso oggetto di configurazione globale
 console.log(globalConfigInstance1 === globalConfigInstance2); // Output: true
+
 
 ``` 
 
