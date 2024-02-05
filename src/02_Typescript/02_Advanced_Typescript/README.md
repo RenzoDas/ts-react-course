@@ -295,7 +295,7 @@ In questo esempio, abbiamo creato una funzione di fabbrica createVehicle che pre
 
 ## FACADE
 
-Il pattern Facade in TypeScript è estremamente utile quando si lavora su sistemi complessi, offrendo un'interfaccia semplice per interagire con una o più sottosistemi complessi. Questo pattern è particolarmente vantaggioso in scenari di sviluppo frontend e backend, dove l'obiettivo è ridurre la complessità per gli sviluppatori e migliorare l'usabilità del sistema.
+Il pattern Facade in TypeScript è estremamente utile quando si lavora su sistemi complessi, offrendo un'interfaccia per interagire con una o più sottosistemi complessi. Questo pattern è particolarmente vantaggioso in scenari di sviluppo frontend e backend, dove l'obiettivo è ridurre la complessità per gli sviluppatori e migliorare l'usabilità del sistema.
 
 ### Esempio di Scenario:
 
