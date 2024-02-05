@@ -113,6 +113,8 @@ Altri contesti concorrenti
 
 ## Observer
 
+Il pattern Observer permette di definire una dipendenza uno-a-molti tra oggetti in modo che, quando un oggetto cambia stato, tutti i suoi dipendenti vengono notificati e aggiornati automaticamente. Si basa su un soggetto (osservabile) che mantiene una lista di osservatori e li notifica in caso di eventi. È utile per implementare sistemi di notifica dove gli osservatori si sottoscrivono per ricevere aggiornamenti dall'osservabile.
+
 ### Esempio di Scenario:
 
 Immagina di dover implementare un sistema di notifica in un'applicazione TypeScript. Vuoi che diversi componenti dell'applicazione possano ricevere notifiche quando determinati eventi accadono, senza utilizzare classi per l'implementazione.
