@@ -60,8 +60,7 @@ type Singleton = {
 };
 
 const GlobalConfig: Singleton = (() => {
-  let instance: ConfigData;
-  let configData: ConfigData;
+  let instance: ConfigData | undefined; // Use undefined for initial value
 
   function createInstance(): ConfigData {
     // Creazione dell'oggetto di configurazione
@@ -70,9 +69,6 @@ const GlobalConfig: Singleton = (() => {
       apiKey: "your-api-key",
       time: Date.now(),
     };
-
-    // Metodo per ottenere i dati di configurazione
-    configData = config;
 
     return config;
   }
@@ -96,7 +92,6 @@ console.log(globalConfigInstance2); // Output: { apiUrl: "https://api.example.co
 
 // Entrambe le istanze puntano allo stesso oggetto di configurazione globale
 console.log(globalConfigInstance1 === globalConfigInstance2); // Output: true
-
 ``` 
 
 In questo esempio, abbiamo implementato un Singleton chiamato GlobalConfig che gestisce una configurazione globale. Le istanze di GlobalConfig possono accedere ai dati di configurazione, ma assicurano che ci sia una sola istanza condivisa in tutto il codice.
