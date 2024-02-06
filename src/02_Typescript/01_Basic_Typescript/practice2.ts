@@ -10,6 +10,47 @@ Dettagli:
 Questo esercizio ti aiuterà a manipolare strutture di dati complesse.
 */
 
+interface Persona {
+  nome: string
+  cognome: string
+  eta: number
+}
+
+const Giuseppe = {
+  nome: "Giuseppe",
+  cognome: "Russo",
+  eta: 20,
+}
+
+function getInitials(persone: Persona[]): string[] {
+  return persone.map((persona) => {
+    const { nome, cognome } = persona
+    return `${nome[0]}.${cognome[0]}`
+  })
+}
+
+console.log(getInitials([Giuseppe, Giuseppe, Giuseppe]))
+
+console.log(Object.keys(Giuseppe))
+
+function typeInspector(obj: { [key: string]: number | string }): {
+  [key: string]: string
+} {
+  const result = {} as { [key: string]: string }
+  const keys = Object.keys(obj)
+
+  keys.map(
+    (key) =>
+      (result[key] =
+        typeof obj[key] === "string"
+          ? `Stringa: ${obj[key]}`
+          : `Numero: ${obj[key]}`)
+  )
+
+  return result
+}
+
+console.log(typeInspector(Giuseppe))
 ////////////////////////////////////////////////////////////
 // ESERCIZIO 2: Tipi di Funzione
 ////////////////////////////////////////////////////////////
@@ -22,6 +63,27 @@ Dettagli:
 Questo esercizio ti permette di esplorare l'uso dei tipi di funzione e delle funzioni di ordine superiore (High order functions).
 */
 
+// applicaOperazione  => callback (Operazione da applicare) => number[]
+
+//Es. applicaOperazione([1,2,3,4,5,6], (a,b) => (return a + b)) => [3,5,7,9,11]
+
+type Operazione = (a: number, b: number) => number
+
+function applicaOperazione(numeri: number[], operazione: Operazione): number[] {
+  const risultatoFn: number[] = []
+  for (let i = 0; i < numeri.length - 1; i++) {
+    const risultatoOperazione = operazione(numeri[i], numeri[i + 1])
+    risultatoFn.push(risultatoOperazione)
+  }
+
+  return risultatoFn
+}
+
+const somma: Operazione = (a, b) => a + b
+const resta: Operazione = (a, b) => a - b
+
+console.log(applicaOperazione([1, 2, 3, 4, 5, 6], somma))
+console.log(applicaOperazione([6, 5, 4, 3, 2, 1], resta))
 ////////////////////////////////////////////////////////////
 // ESERCIZIO 3: Destructuring e Spread
 ////////////////////////////////////////////////////////////
@@ -30,9 +92,20 @@ Questo esercizio ti permette di esplorare l'uso dei tipi di funzione e delle fun
 Utilizza il destructuring e l'operatore spread per lavorare con oggetti e array.
 Dettagli:
 - Crea una funzione che accetta un array e restituisce un nuovo array composto dal primo elemento e dal "resto" degli elementi.
+Es. [1,2,3,4,5] => [1,2,3,[4,5,6]] / Optional: No any / Generics
+
+
+
 - Scrivi una funzione che unisce due oggetti utente con lo spread operator, dando priorità alle proprietà del secondo oggetto in caso di conflitto.
 Questo esercizio ti permette di manipolare e combinare dati in modi flessibili.
 */
+
+function arrayFirstElementWithRest(array: any[]): any[] {
+  const [firstElement, secondElement, thirdElement, ...restArray] = array
+  return [firstElement, secondElement, thirdElement, restArray]
+}
+
+console.log(arrayFirstElementWithRest([1, 2, 3, 4, 5, 6]))
 
 ////////////////////////////////////////////////////////////
 // ESERCIZIO 4: Parametri Rest e Tuple
