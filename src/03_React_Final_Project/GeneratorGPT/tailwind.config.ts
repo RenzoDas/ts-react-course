@@ -4,19 +4,13 @@ export default {
   theme: {
     extend: {
       fontSize: {
-        "h-xl": "6rem",
-        "h-lg": "4rem",
-      },
-      fontWeight: {
-        100: "100",
-        200: "200",
-        300: "300",
-        400: "400",
-        500: "500",
-        600: "600",
-        700: "700",
-        800: "800",
-        900: "900",
+        "h-xl": ["6rem", "100px"],
+        "h-lg": ["4rem", "64px"],
+        "h-md": ["3rem", "48px"],
+        "h-sm": ["2rem", "40px"],
+        "p-md": ["1.125rem", "24px"],
+        "p-sm": ["1rem", "24px"],
+        "p-xs": ["0.75rem", "12px"],
       },
       fontFamily: {
         base: "Poppins",
@@ -56,5 +50,11 @@ export default {
       },
     },
   },
+  safelist: [
+    {
+      pattern:
+        /^(text|bg)-(primary|secondary|neutral|feedback)-(100|300|500|700|900|success|error|warning)$/,
+    },
+  ],
   plugins: [],
 }

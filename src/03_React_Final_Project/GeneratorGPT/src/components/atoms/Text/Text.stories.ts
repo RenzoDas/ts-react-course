@@ -1,32 +1,41 @@
 import type { Meta, StoryObj } from "@storybook/react"
+import { getColorNames } from "@models/theme"
 import { Text } from "./Text"
+import { TextVariants } from "@models/components/atoms/Text/types"
+import React from "react"
 
-const meta = {
+// Define the meta configuration for the Text component
+const meta: Meta<typeof Text> = {
   title: "Atoms/Text",
   component: Text,
   parameters: {
     layout: "centered",
   },
+  tags: ["autodocs"],
   argTypes: {
     color: {
-      control: "color",
+      control: "select",
+      options: getColorNames("text"),
     },
   },
-} satisfies Meta<typeof Text>
+}
 
 export default meta
 
-type Story = StoryObj<typeof meta>
+const createStory = (
+  children: React.ReactNode,
+  variant: TextVariants,
+): StoryObj<typeof meta> => ({
+  args: {
+    children,
+    variant,
+  },
+})
 
-export const Header1: Story = {
-  args: {
-    children: "Header 1",
-    variant: "h-xl",
-  },
-}
-export const Header2: Story = {
-  args: {
-    children: "Header 2",
-    variant: "h-lg",
-  },
-}
+export const HeaderXl = createStory("Header XL", "h-xl")
+export const HeaderLg = createStory("Header LG", "h-lg")
+export const HeaderMd = createStory("Header MD", "h-md")
+export const HeaderSm = createStory("Header SM", "h-sm")
+export const ParagraphMd = createStory("Paragraph MD", "p-md")
+export const ParagraphSm = createStory("Paragraph SM", "p-sm")
+export const ParagraphXs = createStory("Paragraph XS", "p-xs")
