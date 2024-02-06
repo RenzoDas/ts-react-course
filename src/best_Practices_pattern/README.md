@@ -131,7 +131,7 @@ const Card: React.FC<CardProps> = ({ header, body, footer }) => {
 ``` 
 
 
-## Higher-Order Components (HOC)
+### Higher-Order Components (HOC)
 Un altro modo di applicare la composizione è attraverso l'uso di Higher-Order Components (HOC). Questi sono funzioni che prendono un componente e restituiscono un nuovo componente con proprietà aggiuntive o logica.
 
 **Esempio**:
