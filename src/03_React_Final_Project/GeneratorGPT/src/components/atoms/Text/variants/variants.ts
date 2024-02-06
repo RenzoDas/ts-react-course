@@ -6,16 +6,6 @@ import {
   TextWeights,
 } from "@models/components/atoms/Text/types"
 
-/**
- * Selects and returns the text variant properties based on the provided text properties.
- *
- * @param {string} params.variant - The variant of the text.
- * @param {TextTags} params.textTag - The HTML tag to be used for the text.
- * @param {TextWeights} params.weight - The font weight of the text.
- * @param {Colors} params.color - The color of the text.
- * @param {string[]} params.style - Additional styles to be applied to the text using tailwind.
- * @returns {TextVariantProps} The properties for the specified text variant.
- */
 export const variantPicker = ({
   variant,
   textTag,
