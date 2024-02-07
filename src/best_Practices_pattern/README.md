@@ -76,7 +76,7 @@ La Separation of Concerns è un principio fondamentale nella progettazione del s
 
 Il Composition Pattern è molto utilizzato nella programmazione React, permette di costruire componenti complessi componendo insieme componenti più semplici. Questo approccio è in linea con il principio filosofico di React che incoraggia la composizione piuttosto che l'ereditarietà. In TypeScript, questo pattern può essere applicato grazie ai tipi statici che aiutano a gestire le props e gli stati dei componenti.
 
-### Esempio Base di Composition Pattern
+### Esempio Base di Composition Pattern
 
 Abbiamo un componente Button e creaiamo un componente IconButton che lo compone aggiungendo un'icona.
 
