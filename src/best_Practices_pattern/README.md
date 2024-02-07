@@ -18,25 +18,22 @@ Una delle applicazioni più comuni di SoC in React è la divisione tra component
 
 ```typescript
 
-// Componente Presentazionale
-const UserList = ({ users }) => (
-  <ul>
-    {users.map(user => <li key={user.id}>{user.name}</li>)}
-  </ul>
-);
+import React, { useState, useEffect } from 'react';
 
-// Componente Container
-class UserListContainer extends React.Component {
-  state = { users: [] };
+const UserListContainer = () => {
+  const [users, setUsers] = useState([]);
 
-  componentDidMount() {
-    fetchUsers().then(users => this.setState({ users }));
-  }
+  useEffect(() => {
+    const fetchUsers = async () => {
+      const usersData = await fetchUsers(); // Assumi che fetchUsers sia definita altrove
+      setUsers(usersData);
+    };
 
-  render() {
-    return <UserList users={this.state.users} />;
-  }
-}
+    fetchUsers();
+  }, []); // L'array vuoto indica che questo effetto viene eseguito solo al montaggio del componente
+
+  return <UserList users={users} />;
+};
 
 ```
 
@@ -48,24 +45,27 @@ Il Composition Pattern sfrutta la composizione di componenti per riutilizzare la
 
 ```typescript
 
-const withUserData = (WrappedComponent) => {
-  return class extends React.Component {
-    state = { users: [] };
+import React, { useState, useEffect } from 'react';
 
-    componentDidMount() {
-      fetchUsers().then(users => this.setState({ users }));
-    }
+const UserListContainer = () => {
+  const [users, setUsers] = useState([]);
 
-    render() {
-      return <WrappedComponent users={this.state.users} {...this.props} />;
-    }
-  };
+  useEffect(() => {
+    const fetchUsers = async () => {
+      const usersData = await fetchUsers(); // Assumi che fetchUsers sia definita altrove
+      setUsers(usersData);
+    };
+
+    fetchUsers();
+  }, []); // L'array vuoto indica che questo effetto viene eseguito solo al montaggio del componente
+
+  return <UserList users={users} />;
 };
 
-// Utilizzo del HOC per arricchire un componente presentazionale con i dati degli utenti
-const UserListWithData = withUserData(UserList);
 
 ```
+
+
 
 ### Conclusione
 La Separation of Concerns è un principio fondamentale nella progettazione del software che, quando applicato correttamente, può portare a codice più pulito, più mantenibile e più facile da estendere. Nel contesto di TypeScript e React, SoC aiuta a gestire la complessità dell'applicazione dividendo la logica di business dalla logica di presentazione e sfruttando pattern come la composizione e la distinzione tra componenti presentazionali e container.
