@@ -55,7 +55,6 @@ const UserListContainer = () => {
 ```
 
 
-
 ### Conclusione
 La Separation of Concerns è un principio fondamentale nella progettazione del software che, quando applicato correttamente, può portare a codice più pulito, più mantenibile e più facile da estendere. Nel contesto di TypeScript e React, SoC aiuta a gestire la complessità dell'applicazione dividendo la logica di business dalla logica di presentazione e sfruttando pattern come la composizione e la distinzione tra componenti presentazionali e container.
 
