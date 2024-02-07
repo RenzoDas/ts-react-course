@@ -155,3 +155,119 @@ const ButtonWithLoading = withLoadingIndicator(Button);
 ```
 
 nell'esempio  un HOC che aggiunge un indicatore di caricamento a qualsiasi componente gli viene passato.
+
+
+
+## Compound Components
+Il concetto di Compound Components è un pattern architetturale utilizzato nello sviluppo di interfacce utente, specialmente in librerie come React. Questo pattern consente di costruire componenti che lavorano insieme in modo armonico, mantenendo al contempo una separazione chiara e una logica ben definita. La filosofia alla base di questo modello è quella di creare una serie di componenti che condividono un contesto comune e comunicano tra loro per realizzare una funzionalità complessa, senza che il componente padre debba intervenire direttamente nella gestione dei dati o della logica tra questi componenti figli.
+
+### Storia
+Sebbene il concetto di Compound Components possa sembrare specifico per React, la sua origine è più antica e si basa sui principi fondamentali della programmazione orientata agli oggetti, come l'incapsulamento e la composizione. Tuttavia, è con l'ascesa di React e del suo modello basato sui componenti che questo pattern ha trovato una forte risonanza, poiché consente di sfruttare al meglio le caratteristiche di React come la composizione dei componenti e il passaggio di props per creare interfacce utente dinamiche e riutilizzabili.
+
+### Esempio Pratico 1: Menu a Discesa (Dropdown)
+Immagina di voler creare un menu a discesa personalizzabile. Potresti avere un componente Dropdown che funge da contenitore, un componente DropdownToggle che gestisce l'apertura e la chiusura del menu, e un componente DropdownMenu che contiene gli elementi (DropdownItem) del menu. Questi componenti lavorano insieme per fornire la funzionalità completa di un menu a discesa, ma sono separati e riutilizzabili in diversi contesti.
+
+
+``` typescript
+
+import React, { useState, ReactNode } from 'react';
+
+interface DropdownProps {
+  children: ReactNode;
+}
+
+const Dropdown: React.FC<DropdownProps> = ({ children }) => {
+  const [isOpen, setIsOpen] = useState<boolean>(false);
+
+  return (
+    <div>
+      {React.Children.map(children, child => {
+        if (React.isValidElement(child)) {
+          return React.cloneElement(child, { isOpen, setIsOpen });
+        }
+        return child;
+      })}
+    </div>
+  );
+};
+
+interface DropdownToggleProps {
+  children: ReactNode;
+  setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+const DropdownToggle: React.FC<DropdownToggleProps> = ({ setIsOpen, children }) => {
+  return <button onClick={() => setIsOpen(state => !state)}>{children}</button>;
+};
+
+interface DropdownMenuProps {
+  isOpen: boolean;
+  children: ReactNode;
+}
+
+const DropdownMenu: React.FC<DropdownMenuProps> = ({ isOpen, children }) => {
+  return isOpen ? <div>{children}</div> : null;
+};
+
+interface DropdownItemProps {
+  children: ReactNode;
+}
+
+const DropdownItem: React.FC<DropdownItemProps> = ({ children }) => {
+  return <div>{children}</div>;
+};
+
+
+```
+
+### Esempio Pratico 2: Variazione con Context API
+Un'altra variazione del pattern di Compound Components può essere implementata utilizzando la Context API di React per evitare il passaggio esplicito di props tra componenti annidati, rendendo il codice più pulito e meno propenso agli errori.
+
+``` typescript
+
+import React, { useState, ReactNode, useContext } from 'react';
+
+interface DropdownContextType {
+  isOpen: boolean;
+  setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+const DropdownContext = React.createContext<DropdownContextType | undefined>(undefined);
+
+const Dropdown: React.FC<{ children: ReactNode }> = ({ children }) => {
+  const [isOpen, setIsOpen] = useState<boolean>(false);
+
+  return (
+    <DropdownContext.Provider value={{ isOpen, setIsOpen }}>
+      <div>{children}</div>
+    </DropdownContext.Provider>
+  );
+};
+
+const DropdownToggle: React.FC<{ children: ReactNode }> = ({ children }) => {
+  const context = useContext(DropdownContext);
+  if (!context) {
+    throw new Error('DropdownToggle must be used within a Dropdown');
+  }
+  const { setIsOpen } = context;
+
+  return <button onClick={() => setIsOpen(state => !state)}>{children}</button>;
+};
+
+const DropdownMenu: React.FC<{ children: ReactNode }> = ({ children }) => {
+  const context = useContext(DropdownContext);
+  if (!context) {
+    throw new Error('DropdownMenu must be used within a Dropdown');
+  }
+  const { isOpen } = context;
+
+  return isOpen ? <div>{children}</div> : null;
+};
+
+// `DropdownItem` rimane invariato rispetto all'esempio precedente e può essere utilizzato come componente figlio all'interno di `DropdownMenu`.
+
+
+```
+
+// `DropdownItem` rimane invariato e può essere utilizzato come nell'esempio precedente.
+
