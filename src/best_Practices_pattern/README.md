@@ -17,13 +17,24 @@ Una delle applicazioni più comuni di SoC in React è la divisione tra **compone
 
 ```typescript
 
-const UserList = ({ users }) => (
+interface User {
+  id: number;
+  name: string;
+}
+
+interface UserListProps {
+  users: User[];
+}
+
+const UserList: React.FC<UserListProps> = ({ users }) => (
   <ul>
     {users.map(user => (
       <li key={user.id}>{user.name}</li>
     ))}
   </ul>
 );
+
+export default UserList;
 
 
 ```
@@ -34,22 +45,24 @@ Il Composition Pattern sfrutta la composizione di componenti per riutilizzare la
 
 ```typescript
 
-import React, { useState, useEffect } from 'react';
-
-const UserListContainer = () => {
-  const [users, setUsers] = useState([]);
+const UserListContainer: React.FC = () => {
+  const [users, setUsers] = useState<User[]>([]);
 
   useEffect(() => {
-    const fetchUsers = async () => {
-      const usersData = await fetchUsers(); // Assumi che fetchUsers sia definita altrove
-      setUsers(usersData);
-    };
-
+    async function fetchUsers() {
+      // Qui dovresti inserire il tuo codice per recuperare gli utenti, ad esempio tramite fetch API
+      // const response = await fetch('your-api-endpoint');
+      // const data: User[] = await response.json();
+      // setUsers(data);
+    }
+  
     fetchUsers();
-  }, []); // L'array vuoto indica che questo effetto viene eseguito solo al montaggio del componente
+  }, []); // L'array vuoto assicura che l'effetto venga eseguito solo una volta, al montaggio del componente
 
   return <UserList users={users} />;
 };
+
+export default UserListContainer;
 
 
 ```
