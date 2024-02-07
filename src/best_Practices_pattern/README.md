@@ -29,8 +29,6 @@ const UserList = ({ users }) => (
 
 ```
 
-**2. Composition Pattern in React**
-
 Il Composition Pattern sfrutta la composizione di componenti per riutilizzare la logica in modo flessibile. Al posto dell'ereditarietà, i componenti React possono utilizzare la composizione per condividere funzionalità, mantenendo separati i concern specifici.
 
 **Esempio**:
