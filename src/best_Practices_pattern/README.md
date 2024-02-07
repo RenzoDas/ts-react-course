@@ -11,8 +11,7 @@ Per le applicazioni back-end, SoC implica la divisione dell'applicazione in dive
 
 ### SoC in TypeScript + React: Esempi Pratici
 
-**1. Componenti Container/Presentazionali in React**
-Una delle applicazioni più comuni di SoC in React è la divisione tra componenti presentazionali e container. I componenti presentazionali sono responsabili della visualizzazione e ricevono dati come props, mentre i componenti container gestiscono la logica, lo stato e i dati da passare ai componenti presentazionali.
+Una delle applicazioni più comuni di SoC in React è la divisione tra **componenti presentazionali** e **container**. I componenti presentazionali sono responsabili della visualizzazione e ricevono dati come props, mentre i componenti container gestiscono la logica, lo stato e i dati da passare ai componenti presentazionali.
 
 **Esempio**:
 
