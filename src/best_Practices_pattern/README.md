@@ -18,22 +18,14 @@ Una delle applicazioni più comuni di SoC in React è la divisione tra component
 
 ```typescript
 
-import React, { useState, useEffect } from 'react';
+const UserList = ({ users }) => (
+  <ul>
+    {users.map(user => (
+      <li key={user.id}>{user.name}</li>
+    ))}
+  </ul>
+);
 
-const UserListContainer = () => {
-  const [users, setUsers] = useState([]);
-
-  useEffect(() => {
-    const fetchUsers = async () => {
-      const usersData = await fetchUsers(); // Assumi che fetchUsers sia definita altrove
-      setUsers(usersData);
-    };
-
-    fetchUsers();
-  }, []); // L'array vuoto indica che questo effetto viene eseguito solo al montaggio del componente
-
-  return <UserList users={users} />;
-};
 
 ```
 
