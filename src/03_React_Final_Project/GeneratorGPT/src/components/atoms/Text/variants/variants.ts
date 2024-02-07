@@ -12,10 +12,7 @@ export const variantPicker = ({
   weight,
   color,
   style = [],
-}: Pick<
-  ITextProps,
-  "textTag" | "color" | "style" | "variant" | "weight"
->): TextVariantProps => {
+}: Omit<ITextProps, "children">): TextVariantProps => {
   // Functions to provide default values if specific properties are not defined.
   const weightDefault = (defaultWeight: TextWeights) =>
     weight ? weight : defaultWeight
@@ -70,6 +67,12 @@ export const variantPicker = ({
       size: "text-p-xs",
       tag: tagDefault("p"),
       weight: weightDefault("font-regular"),
+      ...commonDefault,
+    },
+    "span-md": {
+      size: "text-p-xs",
+      tag: tagDefault("p"),
+      weight: weightDefault("font-bold"),
       ...commonDefault,
     },
   }

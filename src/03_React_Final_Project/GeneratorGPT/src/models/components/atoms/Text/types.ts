@@ -12,13 +12,13 @@ export type TextVariants =
   | "p-md"
   | "p-sm"
   | "p-xs"
+  | "span-md"
 
 /** HTML tags associated with text elements */
 export type TextTags = keyof Pick<
   JSX.IntrinsicElements,
   "h1" | "h2" | "h3" | "h4" | "p"
 >
-
 /** Weight options for text styling */
 export type TextWeights =
   | "font-bold"

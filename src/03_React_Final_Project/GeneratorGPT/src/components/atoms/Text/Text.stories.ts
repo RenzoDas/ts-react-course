@@ -24,7 +24,7 @@ export default meta
 
 const createStory = (
   children: React.ReactNode,
-  variant: TextVariants,
+  variant: TextVariants
 ): StoryObj<typeof meta> => ({
   args: {
     children,
@@ -39,3 +39,4 @@ export const HeaderSm = createStory("Header SM", "h-sm")
 export const ParagraphMd = createStory("Paragraph MD", "p-md")
 export const ParagraphSm = createStory("Paragraph SM", "p-sm")
 export const ParagraphXs = createStory("Paragraph XS", "p-xs")
+export const SpanMd = createStory("SpanMd", "span-md")
