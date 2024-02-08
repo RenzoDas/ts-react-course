@@ -1,81 +1,61 @@
 import {
   ITextProps,
-  TextTags,
-  TextVariantDictionary,
   TextVariantProps,
-  TextWeights,
+  TextVariantDictionary,
 } from "@models/components/atoms/Text/types"
 
 export const variantPicker = ({
   variant,
-  textTag,
+  tag,
   weight,
   color,
   style = [],
-}: Omit<ITextProps, "children">): TextVariantProps => {
-  // Functions to provide default values if specific properties are not defined.
-  const weightDefault = (defaultWeight: TextWeights) =>
-    weight ? weight : defaultWeight
-  const tagDefault = (defaultTag: TextTags) => (textTag ? textTag : defaultTag)
-
-  // Common default properties applied to all text variants.
-  const commonDefault = {
-    color: color || "text-neutral-900", // Default color if not specified
-    style: ["font-base", ...style], // Default font base with additional styles
-  }
-
-  // Definition of text variant properties.
+}: ITextProps): TextVariantProps => {
+  const baseStyle = ["font-base", ...style]
 
   const textVariants: TextVariantDictionary = {
     "h-xl": {
+      tag: "h1",
+      weight: "font-bold",
       size: "text-h-lg lg:text-h-xl",
-      tag: tagDefault("h1"),
-      weight: weightDefault("font-bold"),
-      ...commonDefault,
     },
     "h-lg": {
+      tag: "h2",
+      weight: "font-semibold",
       size: "text-h-md lg:text-h-lg",
-      tag: tagDefault("h2"),
-      weight: weightDefault("font-semibold"),
-      ...commonDefault,
     },
     "h-md": {
+      tag: "h3",
+      weight: "font-light",
       size: "text-h-sm lg:text-h-md",
-      tag: tagDefault("h3"),
-      weight: weightDefault("font-light"),
-      ...commonDefault,
     },
     "h-sm": {
+      tag: "h4",
+      weight: "font-semibold",
       size: "text-p-md lg:text-h-sm",
-      tag: tagDefault("h4"),
-      weight: weightDefault("font-semibold"),
-      ...commonDefault,
     },
     "p-md": {
+      tag: "p",
+      weight: "font-regular",
       size: "text-p-sm lg:text-p-md",
-      tag: tagDefault("p"),
-      weight: weightDefault("font-regular"),
-      ...commonDefault,
     },
     "p-sm": {
+      tag: "p",
+      weight: "font-regular",
       size: "text-p-xs lg:text-p-sm",
-      tag: tagDefault("p"),
-      weight: weightDefault("font-regular"),
-      ...commonDefault,
     },
     "p-xs": {
+      tag: "p",
+      weight: "font-regular",
       size: "text-p-xs",
-      tag: tagDefault("p"),
-      weight: weightDefault("font-regular"),
-      ...commonDefault,
-    },
-    "span-md": {
-      size: "text-p-xs",
-      tag: tagDefault("p"),
-      weight: weightDefault("font-bold"),
-      ...commonDefault,
     },
   }
-
-  return textVariants[variant]
+  const { ...selectedVariant } = textVariants[variant]
+  return {
+    size: selectedVariant.size,
+    tag: tag || selectedVariant.tag || "p",
+    weight: weight || selectedVariant.weight || "font-regular",
+    color: color || selectedVariant.color || "text-neutral-900",
+    style: baseStyle,
+  }
 }

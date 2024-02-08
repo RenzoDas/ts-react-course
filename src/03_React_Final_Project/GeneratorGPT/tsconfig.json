@@ -28,9 +28,9 @@
   },
   "include": [
     "src",
-    "tailwind.config.ts",
-    "tailwind.config.ts",
-    "tailwind.config.ts"
+    "tailwind.config.js",
+    "tailwind.config.js",
+    "tailwind.config.js"
   ],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

@@ -1,59 +1,82 @@
 import {
-  ButtonVariantDictionary,
   IButtonProps,
+  ButtonVariantProps,
+  ButtonVariantDictionary,
 } from "@models/components/atoms/Button/types"
 
 export const variantPicker = ({
   variant,
   style = [],
-}: Pick<IButtonProps, "variant" | "style">): Pick<IButtonProps, "style"> => {
+}: Pick<IButtonProps, "variant" | "style">): ButtonVariantProps => {
+  const baseStyle = ["btn-base", ...style]
+
   const buttonVariants: ButtonVariantDictionary = {
     "b-primary-lg": {
-      style: ["bg-primary-500 p-2 rounded-lg", ...style],
+      style: ["bg-primary-500 p-2 rounded-lg"],
+      size: "",
     },
     "b-primary-md": {
-      style: ["", ...style],
+      size: "",
+      style: [],
     },
     "b-primary-sm": {
-      style: ["", ...style],
+      size: "",
+      style: [],
     },
     "b-secondary-lg": {
-      style: ["", ...style],
+      size: "",
+      style: [],
     },
     "b-secondary-sm": {
-      style: ["", ...style],
+      size: "",
+      style: [],
     },
     "b-secondary-md": {
-      style: ["", ...style],
+      size: "",
+      style: [],
     },
     "b-primary-outline-lg": {
-      style: ["", ...style],
+      size: "",
+      style: [],
     },
     "b-primary-outline-md": {
-      style: ["", ...style],
+      size: "",
+      style: [],
     },
     "b-primary-outline-sm": {
-      style: ["", ...style],
+      size: "",
+      style: [],
     },
     "b-secondary-outline-lg": {
-      style: ["", ...style],
+      size: "",
+      style: [],
     },
     "b-secondary-outline-md": {
-      style: ["", ...style],
+      size: "",
+      style: [],
     },
     "b-secondary-outline-sm": {
-      style: ["", ...style],
+      size: "",
+      style: [],
     },
     "b-transparent-lg": {
-      style: ["", ...style],
+      size: "",
+      style: [],
     },
     "b-transparent-md": {
-      style: ["", ...style],
+      size: "",
+      style: [],
     },
     "b-transparent-sm": {
-      style: ["", ...style],
+      size: "",
+      style: [],
     },
   }
 
-  return buttonVariants[variant]
+  const { ...selectedVariant } = buttonVariants[variant]
+
+  return {
+    style: [...baseStyle],
+    size: selectedVariant.size,
+  }
 }

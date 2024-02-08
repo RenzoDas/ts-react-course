@@ -1,3 +1,5 @@
+import { ReactNode } from "react"
+
 export type ButtonVariants =
   | "b-primary-lg"
   | "b-primary-md"
@@ -15,14 +17,21 @@ export type ButtonVariants =
   | "b-transparent-md"
   | "b-transparent-sm"
 
-export type IButtonProps = {
-  variant: ButtonVariants
-  onClick: () => void //TODO gestire i tipi con generics
-  label?: string
-  icon?: unknown //TODO assegnare tipo giusto
+export type ButtonVariantProps = {
+  size: string
   style?: string[]
 }
 
 export type ButtonVariantDictionary = {
-  [key in ButtonVariants]: Pick<IButtonProps, "style">
+  [key in ButtonVariants]: ButtonVariantProps
+}
+
+export type IconPosition = "left" | "right"
+
+export interface IButtonProps extends ButtonVariantProps {
+  variant: ButtonVariants
+  onClick: () => void
+  label?: string
+  icon?: ReactNode
+  iconPosition?: IconPosition
 }
