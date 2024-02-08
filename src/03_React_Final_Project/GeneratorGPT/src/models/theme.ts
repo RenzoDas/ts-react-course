@@ -10,7 +10,10 @@ type ColorWeight =
   | "success"
   | "error"
   | "warning"
-export type ThemeColors = `${TextOrBg}-${ColorType}-${ColorWeight}`
+
+export type ThemeColors =
+  | `${TextOrBg}-${ColorType}-${ColorWeight}`
+  | `${TextOrBg}-base-${"white" | "black"}`
 
 export function getColorNames(type: TextOrBg): ThemeColors[] {
   const colorNames: ThemeColors[] = []

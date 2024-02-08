@@ -1,30 +1,9 @@
-# React + TypeScript + Vite
+# Buone pratiche per creazione del componente
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Creazione dei tipi:
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: "latest",
-    sourceType: "module",
-    project: ["./tsconfig.json", "./tsconfig.node.json"],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+1: Gli imports prendono i types globali
+2: Creare le varianti del componente
+3: Creare le props delle varianti (solo proprietà che saranno usate all'interno del VariantPicker)
+4: Creare i tipi per ogni proprietà delle varianti (es: tag: creare TextTags (sono h1,h2 ecc..))
+5: Creare il Props del ComponentBase (le proprietà che verranno passate al component base e utilizzate in tutte le varianti)

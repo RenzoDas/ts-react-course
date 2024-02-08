@@ -49,6 +49,6 @@ const createStory = (
   },
 })
 
-export const ButtonSm = createStory("Button lg", "b-primary-lg")
-export const ButtonMd = createStory("Button MD", "b-primary-md")
-export const ButtonLg = createStory("Button sm", "b-primary-sm")
+export const ButtonPrimaryLg = createStory("Button lg", "b-primary-lg")
+export const ButtonPrimaryMd = createStory("Button MD", "b-primary-md")
+export const ButtonPrimarySm = createStory("Button sm", "b-primary-sm")

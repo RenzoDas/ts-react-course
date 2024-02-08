@@ -5,7 +5,7 @@ import { variantPicker } from "./variants/variants"
 export const Text = ({ children, ...variantProps }: ITextProps) => {
   const { tag, weight, color, size, style } = variantPicker(variantProps)
 
-  const TextTag = tag
+  const TextTag = tag || "p"
   const variantStyles = [weight, color, size, style]
 
   return <TextTag className={classNames(variantStyles)}>{children}</TextTag>

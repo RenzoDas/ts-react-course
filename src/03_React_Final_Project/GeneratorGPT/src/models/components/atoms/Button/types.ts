@@ -1,4 +1,6 @@
 import { ReactNode } from "react"
+import { TextVariants, TextWeights } from "../Text/types"
+import { ThemeColors } from "@models/theme"
 
 export type ButtonVariants =
   | "b-primary-lg"
@@ -18,7 +20,9 @@ export type ButtonVariants =
   | "b-transparent-sm"
 
 export type ButtonVariantProps = {
-  size: string
+  fontVariant?: TextVariants
+  fontWeight?: TextWeights
+  fontColor?: ThemeColors
   style?: string[]
 }
 

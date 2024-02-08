@@ -13,9 +13,9 @@ export type TextVariants =
 
 /** Properties for defining text variants */
 export type TextVariantProps = {
-  tag: TextTags
-  weight: TextWeights
-  size: string
+  tag?: TextTags
+  weight?: TextWeights
+  size?: TextVariants | string
   color?: ThemeColors
   style?: string[]
 }

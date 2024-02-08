@@ -25,4 +25,8 @@ export const colors = {
     error: "#F95668",
     warning: "#F8B15D",
   },
+  base: {
+    white: "#FFFFFF",
+    black: "#000000",
+  },
 }

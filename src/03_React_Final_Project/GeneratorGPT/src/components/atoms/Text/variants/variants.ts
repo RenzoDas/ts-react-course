@@ -10,9 +10,7 @@ export const variantPicker = ({
   weight,
   color,
   style = [],
-}: ITextProps): TextVariantProps => {
-  const baseStyle = ["font-base", ...style]
-
+}: ITextProps): Required<TextVariantProps> => {
   const textVariants: TextVariantDictionary = {
     "h-xl": {
       tag: "h1",
@@ -52,10 +50,10 @@ export const variantPicker = ({
   }
   const { ...selectedVariant } = textVariants[variant]
   return {
-    size: selectedVariant.size,
+    size: selectedVariant.size || "p-md",
     tag: tag || selectedVariant.tag || "p",
     weight: weight || selectedVariant.weight || "font-regular",
     color: color || selectedVariant.color || "text-neutral-900",
-    style: baseStyle,
+    style: ["font-base", ...style],
   }
 }

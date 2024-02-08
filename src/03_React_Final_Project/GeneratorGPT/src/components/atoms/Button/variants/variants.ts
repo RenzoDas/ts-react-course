@@ -7,76 +7,70 @@ import {
 export const variantPicker = ({
   variant,
   style = [],
-}: Pick<IButtonProps, "variant" | "style">): ButtonVariantProps => {
-  const baseStyle = ["btn-base", ...style]
-
+}: Pick<IButtonProps, "variant" | "style">): Required<ButtonVariantProps> => {
   const buttonVariants: ButtonVariantDictionary = {
     "b-primary-lg": {
+      fontColor: "text-base-white",
+      fontVariant: "p-sm",
+      fontWeight: "font-bold",
       style: ["bg-primary-500 p-2 rounded-lg"],
-      size: "",
     },
     "b-primary-md": {
-      size: "",
-      style: [],
+      fontColor: "text-base-white",
+      fontVariant: "p-sm",
+      fontWeight: "font-regular",
+      style: ["bg-primary-500 p-2 rounded-lg"],
     },
     "b-primary-sm": {
-      size: "",
-      style: [],
+      fontColor: "text-base-white",
+      fontVariant: "p-xs",
+      fontWeight: "font-regular",
+      style: ["bg-primary-500 p-2 rounded-lg"],
     },
     "b-secondary-lg": {
-      size: "",
       style: [],
     },
     "b-secondary-sm": {
-      size: "",
       style: [],
     },
     "b-secondary-md": {
-      size: "",
       style: [],
     },
     "b-primary-outline-lg": {
-      size: "",
       style: [],
     },
     "b-primary-outline-md": {
-      size: "",
       style: [],
     },
     "b-primary-outline-sm": {
-      size: "",
       style: [],
     },
     "b-secondary-outline-lg": {
-      size: "",
       style: [],
     },
     "b-secondary-outline-md": {
-      size: "",
       style: [],
     },
     "b-secondary-outline-sm": {
-      size: "",
       style: [],
     },
     "b-transparent-lg": {
-      size: "",
       style: [],
     },
     "b-transparent-md": {
-      size: "",
       style: [],
     },
     "b-transparent-sm": {
-      size: "",
       style: [],
     },
   }
 
-  const { ...selectedVariant } = buttonVariants[variant]
+  const selectedVariant = buttonVariants[variant]
 
   return {
-    style: [...baseStyle],
-    size: selectedVariant.size,
+    style: ["", ...selectedVariant.style, ...style],
+    fontColor: selectedVariant.fontColor || "text-neutral-900",
+    fontVariant: selectedVariant.fontVariant || "p-md",
+    fontWeight: selectedVariant.fontWeight || "font-regular",
   }
 }
