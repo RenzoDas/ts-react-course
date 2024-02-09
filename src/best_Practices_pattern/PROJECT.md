@@ -27,10 +27,12 @@ Fornire un meccanismo per aggiornare i dati (ad esempio, un pulsante "Aggiorna l
 ### Sicurezza:
 
 Assicurarsi che la chiave API di IP2Location.io sia conservata in modo sicuro e non esposta pubblicamente nel codice client-side.
-Responsività:
+
+### Responsività:
 
 L'applicazione deve essere responsive e funzionare correttamente su dispositivi mobile e desktop.
-Performance:
+
+### Performance:
 
 Ottimizzare le chiamate API e il caricamento della mappa per garantire una buona esperienza utente, minimizzando i tempi di attesa.
 
