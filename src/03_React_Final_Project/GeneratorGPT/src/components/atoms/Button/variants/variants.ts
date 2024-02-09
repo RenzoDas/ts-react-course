@@ -23,7 +23,7 @@ export const variantPicker = ({
   const secondaryBorder =
     "bg-gradient-to-t from-secondary-500 to-secondary-700 hover:bg-gradient-to-t hover:from-secondary-500 hover:to-secondary-800"
   // Common Styles
-  const buttonCommonStyle = "transition-all tracking-wide"
+  const buttonCommonStyle = "transition-all"
 
   const buttonVariants: ButtonVariantDictionary = {
     "b-primary-lg": {
