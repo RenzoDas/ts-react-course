@@ -54,7 +54,46 @@ Assicurarsi che l'applicazione sia accessibile, seguendo le linee guida WCAG.
 
 Prevedere un piano di deployment, possibilmente utilizzando piattaforme come Netlify, Vercel, o un server cloud, per facilitare l'accesso e la scalabilità dell'applicazione.
 
+# Installazione di storybook
 
+Apri un terminale nella radice del tuo progetto e esegui il comando seguente per installare Storybook e il suo preset per Vite, assicurandoti di usare pnpm se il progetto è configurato per utilizzare pnpm come gestore di pacchetti:
 
+```bash
+pnpm add -D @storybook/react @storybook/builder-vite @storybook/addon-links @storybook/addon-essentials @storybook/addon-interactions @storybook/testing-library
+```
 
+Dopo aver installato le dipendenze necessarie, inizializza Storybook nel tuo progetto eseguendo:
 
+```bash
+npx storybook init --builder @storybook/builder-vite
+```
+
+Dovrai creare o modificare alcuni file di configurazione per ottimizzare l'integrazione di Vite con Storybook. Ecco i passaggi chiave:
+
+**Creazione del file .storybook/main.js**
+Assicurati che il file .storybook/main.js (o .storybook/main.ts se preferisci usare TypeScript) includa il builder di Vite e qualsiasi altro addon necessario. Ecco un esempio di configurazione:
+
+```typescript
+module.exports = {
+  stories: ['../src/**/*.stories.mdx', '../src/**/*.stories.@(js|jsx|ts|tsx)'],
+  addons: [
+    '@storybook/addon-links',
+    '@storybook/addon-essentials',
+    '@storybook/addon-interactions'
+  ],
+  framework: '@storybook/react',
+  core: {
+    builder: '@storybook/builder-vite'
+  },
+  async viteFinal(config, { configType }) {
+    // Personalizza la configurazione di Vite qui
+    return config;
+  },
+};
+```
+
+Una volta completata la configurazione, puoi avviare Storybook per vedere la tua UI in azione. Esegui il seguente comando per avviare Storybook:
+
+```bash
+pnpm storybook
+```
