@@ -47,7 +47,8 @@ Assicurarsi che l'applicazione sia accessibile, seguendo le linee guida WCAG.
 
 ## Testing:
 
-Implementare test unitari e di integrazione per le funzionalità principali, assicurando che l'applicazione funzioni come previsto.
+- Implementare test unitari e di integrazione per le funzionalità principali. Utilizzare framework di testing come Jest per i test unitari e Cypress o similari per i test end-to-end.
+- Utilizzare Storybook per lo sviluppo visuale dei componenti UI: Integrare Storybook nel workflow di sviluppo per costruire e testare i componenti dell'interfaccia utente in isolamento.
 
 ## Deployment:
 
