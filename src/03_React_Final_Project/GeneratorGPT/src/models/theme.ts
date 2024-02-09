@@ -1,4 +1,5 @@
 import { colors } from "src/styles/theme/colors"
+type TwProps = "hover:" | "sm:" | "md:" | "lg:"
 type TextOrBg = "text" | "bg"
 type ColorType = "primary" | "secondary" | "neutral" | "feedback"
 type ColorWeight =
@@ -11,9 +12,11 @@ type ColorWeight =
   | "error"
   | "warning"
 
-export type ThemeColors =
+type BaseThemeColors =
   | `${TextOrBg}-${ColorType}-${ColorWeight}`
   | `${TextOrBg}-base-${"white" | "black"}`
+
+export type ThemeColors = BaseThemeColors | `${TwProps}${BaseThemeColors}`
 
 export function getColorNames(type: TextOrBg): ThemeColors[] {
   const colorNames: ThemeColors[] = []

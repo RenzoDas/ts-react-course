@@ -15,14 +15,18 @@ export type ButtonVariants =
   | "b-secondary-outline-lg"
   | "b-secondary-outline-md"
   | "b-secondary-outline-sm"
-  | "b-transparent-lg"
-  | "b-transparent-md"
-  | "b-transparent-sm"
+  | "b-transparent-light-lg"
+  | "b-transparent-light-md"
+  | "b-transparent-light-sm"
+  | "b-transparent-dark-lg"
+  | "b-transparent-dark-md"
+  | "b-transparent-dark-sm"
 
 export type ButtonVariantProps = {
+  buttonSize?: string
   fontVariant?: TextVariants
   fontWeight?: TextWeights
-  fontColor?: ThemeColors
+  fontColor?: ThemeColors[]
   style?: string[]
 }
 

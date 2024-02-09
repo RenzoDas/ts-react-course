@@ -3,6 +3,7 @@ import {
   TextVariantProps,
   TextVariantDictionary,
 } from "@models/components/atoms/Text/types"
+import { ThemeColors } from "@models/theme"
 
 export const variantPicker = ({
   variant,
@@ -53,7 +54,9 @@ export const variantPicker = ({
     size: selectedVariant.size || "p-md",
     tag: tag || selectedVariant.tag || "p",
     weight: weight || selectedVariant.weight || "font-regular",
-    color: color || selectedVariant.color || "text-neutral-900",
+    color: [...(color as ThemeColors[])] || [selectedVariant.color] || [
+        "text-neutral-900",
+      ],
     style: ["font-base", ...style],
   }
 }

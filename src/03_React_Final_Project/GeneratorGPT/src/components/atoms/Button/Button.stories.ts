@@ -4,7 +4,6 @@ import {
   ButtonVariants,
   IButtonProps,
 } from "@models/components/atoms/Button/types"
-
 // Define the meta configuration for the Button component
 const meta: Meta<typeof Button> = {
   title: "Atoms/Button",
@@ -28,9 +27,12 @@ const meta: Meta<typeof Button> = {
         "b-secondary-outline-lg",
         "b-secondary-outline-md",
         "b-secondary-outline-sm",
-        "b-transparent-lg",
-        "b-transparent-md",
-        "b-transparent-sm",
+        "b-transparent-light-lg",
+        "b-transparent-light-md",
+        "b-transparent-light-sm",
+        "b-transparent-dark-lg",
+        "b-transparent-dark-md",
+        "b-transparent-dark-sm",
       ] as ButtonVariants[],
     },
   },
@@ -38,14 +40,17 @@ const meta: Meta<typeof Button> = {
 }
 
 export default meta
-
 const createStory = (
   label: IButtonProps["label"],
   variant: ButtonVariants,
+  backgrounds?: { default: string }
 ): StoryObj<typeof meta> => ({
   args: {
     label,
     variant,
+  },
+  parameters: {
+    backgrounds: backgrounds,
   },
 })
 
@@ -60,13 +65,31 @@ export const SecondaryMd = createStory("Button", "b-secondary-md")
 export const SecondarySm = createStory("Button", "b-secondary-sm")
 export const SecondaryOutlineLg = createStory(
   "Button",
-  "b-secondary-outline-lg",
+  "b-secondary-outline-lg"
 )
 export const SecondaryOutlineMd = createStory(
   "Button",
-  "b-secondary-outline-md",
+  "b-secondary-outline-md"
 )
 export const SecondaryOutlineSm = createStory(
   "Button",
-  "b-secondary-outline-sm",
+  "b-secondary-outline-sm"
 )
+export const TransparentLightLg = createStory(
+  "Button",
+  "b-transparent-light-lg",
+  { default: "dark" }
+)
+export const TransparentLightMd = createStory(
+  "Button",
+  "b-transparent-light-md",
+  { default: "dark" }
+)
+export const TransparentLightSm = createStory(
+  "Button",
+  "b-transparent-light-sm",
+  { default: "dark" }
+)
+export const TransparentDarkLg = createStory("Button", "b-transparent-dark-lg")
+export const TransparentDarkMd = createStory("Button", "b-transparent-dark-md")
+export const TransparentDarkSm = createStory("Button", "b-transparent-dark-sm")

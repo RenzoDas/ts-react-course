@@ -16,7 +16,7 @@ export type TextVariantProps = {
   tag?: TextTags
   weight?: TextWeights
   size?: TextVariants | string
-  color?: ThemeColors
+  color?: ThemeColors[]
   style?: string[]
 }
 

@@ -9,7 +9,7 @@ export const Button = ({
   label,
   ...variantProps
 }: IButtonProps) => {
-  const { style, fontVariant, fontWeight, fontColor } =
+  const { style, fontVariant, fontWeight, fontColor, buttonSize } =
     variantPicker(variantProps)
 
   console.log(icon)
@@ -19,7 +19,12 @@ export const Button = ({
   console.log(variantStyles)
   return (
     <button onClick={onClick} className={classNames(variantStyles)}>
-      <Text variant={fontVariant} color={fontColor} weight={fontWeight}>
+      <Text
+        style={[buttonSize]}
+        variant={fontVariant}
+        color={fontColor}
+        weight={fontWeight}
+      >
         {label}
       </Text>
     </button>
