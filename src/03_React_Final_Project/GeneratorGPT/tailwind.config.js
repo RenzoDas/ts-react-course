@@ -16,19 +16,32 @@ const config = {
       },
       colors: {
         primary: {
-          100: "#f4d2d4",
-          300: "#e28a8f",
-          500: "#d1434b",
-          700: "#822a2f",
-          900: "#321012",
+          50: "#f5f3ff",
+          100: "#ede9fe",
+          200: "#ddd6fe",
+          300: "#c4b5fd",
+          400: "#a78bfa",
+          500: "#8b5cf6",
+          600: "#7c3aed",
+          700: "#6d28d9",
+          800: "#5b21b6",
+          900: "#4c1d95",
+          950: "#2e1065",
         },
         secondary: {
-          100: "#CEE0EE",
-          300: "#7FAFD2",
-          500: "#317EB7",
-          700: "#1E4E71",
-          900: "#0C1E2C",
+          50: "#ecfeff",
+          100: "#cffafe",
+          200: "#a5f3fc",
+          300: "#67e8f9",
+          400: "#22d3ee",
+          500: "#06b6d4",
+          600: "#0891b2",
+          700: "#0e7490",
+          800: "#155e75",
+          900: "#164e63",
+          950: "#083344",
         },
+
         neutral: {
           100: "#D9D9D9",
           300: "#C2C2C2",
@@ -56,10 +69,10 @@ const config = {
   safelist: [
     {
       pattern:
-        /^(text|bg)-(primary|secondary|neutral|feedback)-(100|300|500|700|900|success|error|warning)$/,
+        /^(border|text|bg)-(primary|secondary|neutral|feedback)-(100|200|300|400|500|600|700|800|900|success|error|warning)$/,
     },
     {
-      pattern: /^(text|bg)-(base)-(white|black)$/,
+      pattern: /^(border|text|bg)-(base)-(white|black)$/,
     },
   ],
   plugins: [],

@@ -41,7 +41,7 @@ export default meta
 
 const createStory = (
   label: IButtonProps["label"],
-  variant: ButtonVariants
+  variant: ButtonVariants,
 ): StoryObj<typeof meta> => ({
   args: {
     label,
@@ -49,6 +49,24 @@ const createStory = (
   },
 })
 
-export const ButtonPrimaryLg = createStory("Button lg", "b-primary-lg")
-export const ButtonPrimaryMd = createStory("Button MD", "b-primary-md")
-export const ButtonPrimarySm = createStory("Button sm", "b-primary-sm")
+export const PrimaryLg = createStory("Button", "b-primary-lg")
+export const PrimaryMd = createStory("Button", "b-primary-md")
+export const PrimarySm = createStory("Button", "b-primary-sm")
+export const PrimaryOutlineLg = createStory("Button", "b-primary-outline-lg")
+export const PrimaryOutlineMd = createStory("Button", "b-primary-outline-md")
+export const PrimaryOutlineSm = createStory("Button", "b-primary-outline-sm")
+export const SecondaryLg = createStory("Button", "b-secondary-lg")
+export const SecondaryMd = createStory("Button", "b-secondary-md")
+export const SecondarySm = createStory("Button", "b-secondary-sm")
+export const SecondaryOutlineLg = createStory(
+  "Button",
+  "b-secondary-outline-lg",
+)
+export const SecondaryOutlineMd = createStory(
+  "Button",
+  "b-secondary-outline-md",
+)
+export const SecondaryOutlineSm = createStory(
+  "Button",
+  "b-secondary-outline-sm",
+)
