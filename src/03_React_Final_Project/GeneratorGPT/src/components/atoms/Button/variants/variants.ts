@@ -3,6 +3,7 @@ import {
   ButtonVariantProps,
   ButtonVariantDictionary,
 } from "@models/components/atoms/Button/types"
+import { IconVariantsProps } from "@models/components/atoms/Icon/types"
 import { ThemeColors } from "@models/theme/color"
 
 export const variantPicker = ({
@@ -33,6 +34,27 @@ export const variantPicker = ({
   const transparentHover = "hover:opacity-50 active:opacity-100"
   // Icon Styles
   const iconStyle = "transition-all"
+  // IconProps Styles
+  const mainIconProps = {
+    color: ["fill-neutral-white"],
+    style: [iconStyle],
+    size: "md",
+  } as IconVariantsProps
+  const mainDarkIconProps = {
+    color: ["fill-neutral-black"],
+    style: [iconStyle],
+    size: "md",
+  } as IconVariantsProps
+  const outlinePrimaryIconProps = {
+    color: ["fill-primary-500", "group-hover:fill-neutral-white"],
+    style: [iconStyle],
+    size: "md",
+  } as IconVariantsProps
+  const outlineSecondaryIconProps = {
+    color: ["fill-secondary-500", "group-hover:fill-neutral-white"],
+    style: [iconStyle],
+    size: "md",
+  } as IconVariantsProps
   // Common Styles
   const buttonCommonStyle =
     "transition-all rounded-lg flex items-center gap-2 group"
@@ -44,11 +66,7 @@ export const variantPicker = ({
       fontVariant: "p-sm",
       fontWeight: "font-regular",
       style: [primaryGradient],
-      iconProps: {
-        color: ["fill-neutral-white"],
-        style: [iconStyle],
-        size: "md",
-      },
+      iconProps: mainIconProps,
     },
     "b-primary-md": {
       buttonSize: square ? squareMd : sizeMd,
@@ -56,11 +74,7 @@ export const variantPicker = ({
       fontVariant: "p-sm",
       fontWeight: "font-regular",
       style: [primaryGradient],
-      iconProps: {
-        color: ["fill-neutral-white"],
-        style: [iconStyle],
-        size: "md",
-      },
+      iconProps: mainIconProps,
     },
     "b-primary-sm": {
       buttonSize: square ? squareLg : sizeSm,
@@ -69,8 +83,7 @@ export const variantPicker = ({
       fontWeight: "font-light",
       style: [primaryGradient],
       iconProps: {
-        color: ["fill-neutral-white"],
-        style: [iconStyle],
+        ...mainIconProps,
         size: "sm",
       },
     },
@@ -80,11 +93,7 @@ export const variantPicker = ({
       fontVariant: "p-sm",
       fontWeight: "font-regular",
       style: [secondaryGradient],
-      iconProps: {
-        color: ["fill-neutral-white"],
-        style: [iconStyle],
-        size: "md",
-      },
+      iconProps: mainIconProps,
     },
     "b-secondary-md": {
       buttonSize: square ? squareMd : sizeMd,
@@ -92,11 +101,7 @@ export const variantPicker = ({
       fontVariant: "p-sm",
       fontWeight: "font-regular",
       style: [secondaryGradient],
-      iconProps: {
-        color: ["fill-neutral-white"],
-        style: [iconStyle],
-        size: "md",
-      },
+      iconProps: mainIconProps,
     },
     "b-secondary-sm": {
       buttonSize: square ? squareLg : sizeSm,
@@ -104,11 +109,7 @@ export const variantPicker = ({
       fontVariant: "p-xs",
       fontWeight: "font-light",
       style: [secondaryGradient],
-      iconProps: {
-        color: ["fill-neutral-white"],
-        style: [iconStyle],
-        size: "sm",
-      },
+      iconProps: { ...mainIconProps, size: "sm" },
     },
     "b-primary-outline-lg": {
       buttonSize: square ? squareLg : sizeLg,
@@ -116,11 +117,7 @@ export const variantPicker = ({
       fontVariant: "p-sm",
       fontWeight: "font-regular",
       style: [primaryBorder],
-      iconProps: {
-        color: ["fill-primary-500", "group-hover:fill-neutral-white"],
-        style: [iconStyle],
-        size: "md",
-      },
+      iconProps: outlinePrimaryIconProps,
     },
     "b-primary-outline-md": {
       buttonSize: square ? squareMd : sizeMd,
@@ -128,11 +125,7 @@ export const variantPicker = ({
       fontVariant: "p-sm",
       fontWeight: "font-regular",
       style: [primaryBorder],
-      iconProps: {
-        color: ["fill-primary-500", "group-hover:fill-neutral-white"],
-        style: [iconStyle],
-        size: "md",
-      },
+      iconProps: outlinePrimaryIconProps,
     },
     "b-primary-outline-sm": {
       buttonSize: square ? squareLg : sizeSm,
@@ -140,11 +133,7 @@ export const variantPicker = ({
       fontVariant: "p-xs",
       fontWeight: "font-light",
       style: [primaryBorder],
-      iconProps: {
-        color: ["fill-primary-500", "group-hover:fill-neutral-white"],
-        style: [iconStyle],
-        size: "sm",
-      },
+      iconProps: { ...outlinePrimaryIconProps, size: "sm" },
     },
     "b-secondary-outline-lg": {
       buttonSize: square ? squareLg : sizeLg,
@@ -152,11 +141,7 @@ export const variantPicker = ({
       fontVariant: "p-sm",
       fontWeight: "font-regular",
       style: [secondaryBorder],
-      iconProps: {
-        color: ["fill-secondary-500", "group-hover:fill-neutral-white"],
-        style: [iconStyle],
-        size: "md",
-      },
+      iconProps: outlineSecondaryIconProps,
     },
     "b-secondary-outline-md": {
       buttonSize: square ? squareMd : sizeMd,
@@ -164,11 +149,7 @@ export const variantPicker = ({
       fontVariant: "p-sm",
       fontWeight: "font-regular",
       style: [secondaryBorder],
-      iconProps: {
-        color: ["fill-secondary-500", "group-hover:fill-neutral-white"],
-        style: [iconStyle],
-        size: "md",
-      },
+      iconProps: outlineSecondaryIconProps,
     },
     "b-secondary-outline-sm": {
       buttonSize: square ? squareLg : sizeSm,
@@ -176,11 +157,7 @@ export const variantPicker = ({
       fontVariant: "p-xs",
       fontWeight: "font-light",
       style: [secondaryBorder],
-      iconProps: {
-        color: ["fill-secondary-500", "group-hover:fill-neutral-white"],
-        style: [iconStyle],
-        size: "sm",
-      },
+      iconProps: { ...outlineSecondaryIconProps, size: "sm" },
     },
     "b-transparent-light-lg": {
       buttonSize: square ? squareLg : sizeLg,
@@ -188,11 +165,7 @@ export const variantPicker = ({
       fontVariant: "p-sm",
       fontWeight: "font-regular",
       style: [transparentHover],
-      iconProps: {
-        color: ["fill-neutral-white"],
-        style: [iconStyle, "group-hover:opacity-50"],
-        size: "md",
-      },
+      iconProps: mainIconProps,
     },
     "b-transparent-light-md": {
       buttonSize: square ? squareMd : sizeMd,
@@ -200,11 +173,7 @@ export const variantPicker = ({
       fontVariant: "p-sm",
       fontWeight: "font-regular",
       style: [transparentHover],
-      iconProps: {
-        color: ["fill-neutral-white"],
-        style: [iconStyle, "group-hover:opacity-50 group-active:opacity-100"],
-        size: "md",
-      },
+      iconProps: mainIconProps,
     },
     "b-transparent-light-sm": {
       buttonSize: square ? squareLg : sizeSm,
@@ -212,11 +181,7 @@ export const variantPicker = ({
       fontVariant: "p-xs",
       fontWeight: "font-light",
       style: [transparentHover],
-      iconProps: {
-        color: ["fill-neutral-white"],
-        style: [iconStyle, "group-hover:opacity-50 group-active:opacity-100"],
-        size: "sm",
-      },
+      iconProps: { ...mainIconProps, size: "sm" },
     },
     "b-transparent-dark-lg": {
       buttonSize: square ? squareLg : sizeLg,
@@ -224,11 +189,7 @@ export const variantPicker = ({
       fontVariant: "p-sm",
       fontWeight: "font-regular",
       style: [transparentHover],
-      iconProps: {
-        color: ["fill-neutral-black"],
-        style: [iconStyle, "group-hover:opacity-50 group-active:opacity-100"],
-        size: "md",
-      },
+      iconProps: mainDarkIconProps,
     },
     "b-transparent-dark-md": {
       buttonSize: square ? squareMd : sizeMd,
@@ -236,11 +197,7 @@ export const variantPicker = ({
       fontVariant: "p-sm",
       fontWeight: "font-regular",
       style: [transparentHover],
-      iconProps: {
-        color: ["fill-neutral-black"],
-        style: [iconStyle, "group-hover:opacity-50 group-active:opacity-100"],
-        size: "md",
-      },
+      iconProps: mainDarkIconProps,
     },
     "b-transparent-dark-sm": {
       buttonSize: square ? squareSm : sizeSm,
@@ -248,11 +205,7 @@ export const variantPicker = ({
       fontVariant: "p-xs",
       fontWeight: "font-light",
       style: [transparentHover],
-      iconProps: {
-        color: ["fill-neutral-black"],
-        style: [iconStyle, "group-hover:opacity-50 group-active:opacity-100"],
-        size: "sm",
-      },
+      iconProps: { ...mainDarkIconProps, size: "sm" },
     },
   }
 
