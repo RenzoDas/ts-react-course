@@ -181,8 +181,8 @@ Fasi di sviluppo:
 
 8. Bonus:
 
-Implementare la memorizzazione cache dei dati IP per migliorare le prestazioni.
-Aggiungere funzionalità di zoom e interazione sulla mappa.
-Personalizzare l'interfaccia utente della mappa.
+	- Implementare la memorizzazione cache dei dati IP per migliorare le prestazioni.
+	- Aggiungere funzionalità di zoom e interazione sulla mappa.
+	- Personalizzare l'interfaccia utente della mappa.
 
 
