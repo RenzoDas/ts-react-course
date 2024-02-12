@@ -1,4 +1,6 @@
-const config = {
+import { Config } from "tailwindcss"
+
+const config: Config = {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
@@ -43,36 +45,39 @@ const config = {
         },
 
         neutral: {
-          100: "#D9D9D9",
-          300: "#C2C2C2",
+          white: "#FFFFFF",
+          100: "#ebebeb",
+          200: "#e2e2e2",
+          300: "#c4c4c4",
+          400: "#b1b1b1",
           500: "#9D9D9D",
-          700: "#616161",
-          900: "#262626",
+          600: "#7e7e7e",
+          700: "#5e5e5e",
+          800: "#3f3f3f",
+          900: "#1f1f1f",
+          black: "#000000",
         },
         feedback: {
           success: "#09C97F",
           error: "#F95668",
           warning: "#F8B15D",
         },
-        base: {
-          white: "#FFFFFF",
-          black: "#000000",
-        },
       },
       boxShadow: {
         sm: "3px 3px 6px 0px #0000001A",
         md: "3px 3px 10px 0px #00000040",
         lg: "0px 4px 16px 0px #00000059",
+        "border-inner-primary": `inset 0 0 0 2px #8b5cf6`,
+        "border-inner-primary-800": `inset 0 0 0 2px #5b21b6`,
+        "border-inner-secondary": `inset 0 0 0 2px #06b6d4`,
+        "border-inner-secondary-800": `inset 0 0 0 2px #155e75`,
       },
     },
   },
   safelist: [
     {
       pattern:
-        /^(border|text|bg)-(primary|secondary|neutral|feedback)-(100|200|300|400|500|600|700|800|900|success|error|warning)$/,
-    },
-    {
-      pattern: /^(border|text|bg)-(base)-(white|black)$/,
+        /^(border|text|bg)-(primary|secondary|neutral|feedback)-(50|100|200|300|400|500|600|700|800|900|950|success|error|warning|black|white)$/,
     },
   ],
   plugins: [],

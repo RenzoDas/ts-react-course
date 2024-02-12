@@ -1,6 +1,6 @@
-import { ReactNode } from "react"
 import { TextVariants, TextWeights } from "../Text/types"
-import { ThemeColors } from "@models/theme"
+import { ThemeColors } from "@models/theme/color"
+import { IIconProps, IconVariantsProps } from "../Icon/types"
 
 export type ButtonVariants =
   | "b-primary-lg"
@@ -26,8 +26,11 @@ export type ButtonVariantProps = {
   buttonSize?: string
   fontVariant?: TextVariants
   fontWeight?: TextWeights
-  fontColor?: ThemeColors[]
+  fontColor?: ThemeColors<"text">[]
   style?: string[]
+  iconProps?: IconVariantsProps
+  square?: boolean
+  full?: boolean
 }
 
 export type ButtonVariantDictionary = {
@@ -40,6 +43,6 @@ export interface IButtonProps extends ButtonVariantProps {
   variant: ButtonVariants
   onClick: () => void
   label?: string
-  icon?: ReactNode
+  icon?: IIconProps["variant"]
   iconPosition?: IconPosition
 }

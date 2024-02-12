@@ -1,11 +1,11 @@
-import { ThemeColors } from "@models/theme"
+import { ThemeColors } from "@models/theme/color"
 
 export type IconVariants = "arrows-maximize" | "arrow-maximize-light"
 
 export type IconVariantsProps = {
   size?: "lg" | "md" | "sm"
   style?: string[]
-  color?: ThemeColors[]
+  color?: ThemeColors<"fill">[]
 }
 
 export type IconVariantsDictionary = {
@@ -13,5 +13,5 @@ export type IconVariantsDictionary = {
 }
 
 export interface IIconProps extends IconVariantsProps {
-  variant: IconVariants
+  variant?: IconVariants
 }

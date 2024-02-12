@@ -3,7 +3,6 @@ import {
   TextVariantProps,
   TextVariantDictionary,
 } from "@models/components/atoms/Text/types"
-import { ThemeColors } from "@models/theme"
 
 export const variantPicker = ({
   variant,
@@ -16,47 +15,50 @@ export const variantPicker = ({
     "h-xl": {
       tag: "h1",
       weight: "font-bold",
-      size: "text-h-lg lg:text-h-xl",
+      size: ["text-h-lg", "lg:text-h-xl"],
     },
     "h-lg": {
       tag: "h2",
       weight: "font-semibold",
-      size: "text-h-md lg:text-h-lg",
+      size: ["text-h-md", "lg:text-h-lg"],
     },
     "h-md": {
       tag: "h3",
       weight: "font-light",
-      size: "text-h-sm lg:text-h-md",
+      size: ["text-h-sm", "lg:text-h-md"],
     },
     "h-sm": {
       tag: "h4",
       weight: "font-semibold",
-      size: "text-p-md lg:text-h-sm",
+      size: ["text-p-md", "lg:text-h-sm"],
     },
     "p-md": {
       tag: "p",
       weight: "font-regular",
-      size: "text-p-sm lg:text-p-md",
+      size: ["text-p-sm", "lg:text-p-md"],
     },
     "p-sm": {
       tag: "p",
       weight: "font-regular",
-      size: "text-p-xs lg:text-p-sm",
+      size: ["text-p-xs", "lg:text-p-sm"],
     },
     "p-xs": {
       tag: "p",
       weight: "font-regular",
-      size: "text-p-xs",
+      size: ["text-p-xs"],
     },
   }
   const { ...selectedVariant } = textVariants[variant]
+
   return {
-    size: selectedVariant.size || "p-md",
+    size: selectedVariant.size || ["text-p-md"],
     tag: tag || selectedVariant.tag || "p",
     weight: weight || selectedVariant.weight || "font-regular",
-    color: [...(color as ThemeColors[])] || [selectedVariant.color] || [
-        "text-neutral-900",
-      ],
+    color: color
+      ? color
+      : selectedVariant.color
+        ? selectedVariant.color
+        : ["text-neutral-900"],
     style: ["font-base", ...style],
   }
 }

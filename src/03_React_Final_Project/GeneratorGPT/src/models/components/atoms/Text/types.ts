@@ -1,5 +1,6 @@
+import { ThemeColors } from "@models/theme/color"
+import { TwProps } from "@models/theme/theme"
 import { ReactNode } from "react"
-import { ThemeColors } from "@models/theme"
 
 /** Variants of text for styling purposes */
 export type TextVariants =
@@ -15,8 +16,8 @@ export type TextVariants =
 export type TextVariantProps = {
   tag?: TextTags
   weight?: TextWeights
-  size?: TextVariants | string
-  color?: ThemeColors[]
+  size?: ThemeFonts[]
+  color?: ThemeColors<"text">[]
   style?: string[]
 }
 
@@ -36,6 +37,10 @@ export type TextWeights =
   | "font-semibold"
   | "font-regular"
   | "font-light"
+
+export type ThemeFonts =
+  | `text-${TextVariants}`
+  | `${TwProps}text-${TextVariants}`
 
 /** Props interface for the Text component */
 export interface ITextProps extends TextVariantProps {

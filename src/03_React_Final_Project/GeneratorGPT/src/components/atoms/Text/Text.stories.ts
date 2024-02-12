@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from "@storybook/react"
-import { getColorNames } from "@models/theme"
 import { Text } from "./Text"
 import { TextVariants } from "@models/components/atoms/Text/types"
 import React from "react"
+import { getColorNames } from "@models/theme/color"
 
 // Define the meta configuration for the Text component
 const meta: Meta<typeof Text> = {
@@ -19,7 +19,6 @@ const meta: Meta<typeof Text> = {
     },
   },
 }
-
 export default meta
 
 const createStory = (
