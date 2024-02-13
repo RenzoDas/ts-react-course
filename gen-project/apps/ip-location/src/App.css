@@ -1,0 +1,23 @@
+#root {
+  max-width: 1280px;
+  min-width: 290px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.currentIp {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background: MidnightBlue;
+  padding: 20px 100px;
+  border-radius: 2px;
+  border: 1px solid CornflowerBlue;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  color: white;
+}
+
+.map {
+  min-height: 600px;
+}
