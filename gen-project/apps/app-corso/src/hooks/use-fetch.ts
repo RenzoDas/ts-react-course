@@ -14,8 +14,8 @@ const useFetch = <I, O>({
   validator,
   adapter,
   mock,
-}: Options<I, O>): { isLoading: boolean; data: O | null; error: Error | null } => {
-  const [data, setData] = useState<O | null>(null)
+}: Options<I, O>): { isLoading: boolean; data: I | O | null; error: Error | null } => {
+  const [data, setData] = useState<I | O | null>(null)
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState<Error | null>(null)
 

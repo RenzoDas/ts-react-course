@@ -17,10 +17,16 @@ function App() {
   if (error) return <div>Errore!</div>
   if (!data) return <div>Data not available</div>
 
+  const isFrontendIp = (data: unknown): data is FrontendIp => (data as FrontendIp)?.coordinates !== undefined
+
   return (
     <div className="App">
-      <CurrentIp {...data} />
-      <Map coordinates={data.coordinates} />
+      {isFrontendIp(data) && (
+        <>
+          <CurrentIp {...data} />
+          <Map coordinates={data.coordinates} />
+        </>
+      )}
     </div>
   )
 }
