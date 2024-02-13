@@ -2,7 +2,6 @@ import { Button } from "@components/atoms/Button/Button"
 import "./App.css"
 import { Text } from "@components/atoms/Text/Text"
 import { Card } from "@components/molecules/Card/Card"
-import { Image } from "@components/atoms/Image/Image"
 
 function App() {
   return (
@@ -26,7 +25,7 @@ function App() {
         <Button
           onClick={() => console.log("Clicked Button 1!")}
           variant="b-primary-outline-lg"
-          label="Primary Border"
+          label="Primary"
           icon="arrows-maximize"
         />
         <Button
@@ -148,26 +147,19 @@ function App() {
           icon="arrows-maximize"
           square
         />
-        <Button
-          onClick={() => alert("Clicked Button 4!")}
-          variant="b-transparent-dark-lg"
-          icon="arrow-maximize-light"
-          square
-        />
       </div>
+      <div className="flex gap-2 pt-10 pb-2">
+        <Text variant="h-sm" color={["text-primary-900"]}>
+          Cards
+        </Text>
+      </div>
+      <hr />
       <div className="pt-8 flex justify-center">
         <Card
           variant="CardProfile"
-          title="Welcome ,"
-          subtitle="Renzo"
+          title="Welcome,"
+          subtitle="Pesciolino rosso"
           imageSrc="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=2487&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-        />
-
-        <Image
-          position="center"
-          rounded="lg"
-          size="3xl"
-          src="https://images.unsplash.com/photo-1682687220795-796d3f6f7000?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
         />
       </div>
     </>

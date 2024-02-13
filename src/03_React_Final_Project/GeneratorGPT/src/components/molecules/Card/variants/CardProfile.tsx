@@ -19,7 +19,7 @@ export const CardProfile = ({
         <Text color={["text-primary-black"]} variant="p-md" weight="font-bold">
           {title}
         </Text>
-        <Text variant="p-md" weight="font-regular">
+        <Text variant="p-sm" weight="font-regular">
           {subtitle}
         </Text>
       </div>

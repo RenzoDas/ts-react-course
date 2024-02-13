@@ -1,6 +1,6 @@
 import { ThemeColors } from "@models/theme/color"
 
-export type IconVariants = "arrows-maximize" | "arrow-maximize-light"
+export type IconVariants = "arrows-maximize" | "arrow-maximize-light" | "heart"
 
 export type IconVariantsProps = {
   size?: "lg" | "md" | "sm"
