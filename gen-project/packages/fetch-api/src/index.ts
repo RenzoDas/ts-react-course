@@ -1,43 +1,29 @@
-// export type LocationApi = {
-//   ip: string;
-//   country_code: string;
-//   country_name: string;
-//   region_name: string;
-//   city_name: string;
-//   latitude: number;
-//   longitude: number;
-//   zip_code: string;
-//   time_zone: string;
-//   asn: number;
-//   as: string;
-//   is_proxy: false;
-//   message: string;
-// };
+import { ResponseAdapter, ResponseValidator } from "./types"
 
-import { ResponseAdapter } from "./types";
+type Options<I, O> = { url: string; validator: ResponseValidator<I>; adapter: ResponseAdapter<I, O>; mock?: I }
 
-async function fetchData<I, O>(
-  url: string,
-  adapter: ResponseAdapter<I, O>,
-  mock?: I
-): Promise<O | null> {
+const fetchData = async <I, O>({ url, validator, adapter, mock }: Options<I, O>): Promise<O | null> => {
   try {
-    if (mock) return adapter(mock);
+    if (mock) return adapter(mock)
     const response = await fetch(url, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
       },
-    });
+    })
     if (!response.ok) {
-      throw new Error("Errore nella richiesta");
+      throw new Error("Errore nella richiesta")
     }
-    const res: I = await response.json();
-    return adapter(res);
+    const res: I = await response.json()
+    const validatedResponse = validator(res)
+    if (!validatedResponse) {
+      throw new Error("Dati API inaspettati")
+    }
+    return adapter(validatedResponse)
   } catch (error: any) {
-    console.log("Errore nella richiesta:", error.message);
+    console.log("Errore nella richiesta:", error.message)
   }
-  return null;
+  return null
 }
 
-export default fetchData;
+export default fetchData

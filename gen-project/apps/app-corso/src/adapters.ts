@@ -1,5 +1,5 @@
-import { ResponseAdapter } from "fetch-api";
-import { BackendIp, FrontendIp } from "./types/ip";
+import { ResponseAdapter } from "fetch-api"
+import { BackendIp, FrontendIp } from "./types/ip"
 
 export const ipAdapter: ResponseAdapter<BackendIp, FrontendIp> = (data) => {
   return {
@@ -9,5 +9,6 @@ export const ipAdapter: ResponseAdapter<BackendIp, FrontendIp> = (data) => {
       code: data.country_code,
       name: data.country_name,
     },
-  };
-};
+    coordinates: [data.latitude, data.longitude],
+  }
+}

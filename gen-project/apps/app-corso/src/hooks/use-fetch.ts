@@ -1,35 +1,44 @@
-import { useEffect, useState } from "react";
-import { ResponseAdapter, fetchData } from "fetch-api";
+import { useEffect, useState } from "react"
+import { ResponseAdapter, fetchData } from "fetch-api"
+import { ResponseValidator } from "fetch-api/src/types"
 
-const useFetch = <I, O>(
-  url: string,
-  adapter: ResponseAdapter<I, O>,
+type Options<I, O> = {
+  url: string
+  validator: ResponseValidator<I>
+  adapter: ResponseAdapter<I, O>
   mock?: I
-): { isLoading: boolean; data: O | null; error: Error | null } => {
-  const [data, setData] = useState<O | null>(null);
-  const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState<Error | null>(null);
+}
+
+const useFetch = <I, O>({
+  url,
+  validator,
+  adapter,
+  mock,
+}: Options<I, O>): { isLoading: boolean; data: O | null; error: Error | null } => {
+  const [data, setData] = useState<O | null>(null)
+  const [isLoading, setIsLoading] = useState(false)
+  const [error, setError] = useState<Error | null>(null)
 
   useEffect(() => {
     const fetchAsync = async () => {
       try {
-        setIsLoading(true);
-        const result = await fetchData<I, O>(url, adapter, mock);
-        setData(result);
+        setIsLoading(true)
+        const result = await fetchData<I, O>({ url, validator, adapter, mock })
+        setData(result)
       } catch (e) {
         if (e instanceof Error) {
-          setError(e);
+          setError(e)
         } else {
-          setError(new Error("Unexpected error"));
+          setError(new Error("Unexpected error"))
         }
       } finally {
-        setIsLoading(false);
+        setIsLoading(false)
       }
-    };
-    fetchAsync();
-  }, [url, adapter, mock]);
+    }
+    fetchAsync()
+  }, [url, validator, adapter, mock])
 
-  return { isLoading, data, error };
-};
+  return { isLoading, data, error }
+}
 
-export default useFetch;
+export default useFetch

@@ -1,3 +1,5 @@
-type ResponseAdapter<I, O> = (data: I) => O;
+type ResponseAdapter<I, O> = (data: I) => O
 
-export type { ResponseAdapter };
+type ResponseValidator<T> = (data: unknown) => T | null
+
+export type { ResponseAdapter, ResponseValidator }
