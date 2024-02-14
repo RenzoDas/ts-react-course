@@ -45,7 +45,7 @@ export function getColorNames<T extends ColorType>(type: T): ThemeColors<T>[] {
         const colorName = `${type}-${groupKey}-${shadeKey}` as ThemeColors<T>
         colorNames.push(colorName)
       })
-    },
+    }
   )
   console.log(colorNames)
 

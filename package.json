@@ -18,5 +18,9 @@
   "homepage": "https://github.com/RenzoDDA/ts-react-course#readme",
   "dependencies": {
     "typescript": "^5.3.3"
+  },
+  "devDependencies": {
+    "prettier": "^3.2.5",
+    "prettier-plugin-tailwindcss": "^0.5.11"
   }
 }

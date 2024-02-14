@@ -9,10 +9,12 @@ import { ThemeColors } from "@models/theme/color"
 export const variantPicker = ({
   variant,
   square,
+  fontWeight,
   style = [],
-}: Pick<IButtonProps, "variant" | "style" | "square" | "full">): Required<
-  Omit<ButtonVariantProps, "square" | "full">
-> => {
+}: Pick<
+  IButtonProps,
+  "variant" | "style" | "square" | "full" | "fontWeight"
+>): Required<Omit<ButtonVariantProps, "square" | "full">> => {
   // Size Styles
   const sizeLg = "px-8 py-2.5"
   const sizeMd = "px-7 py-2"
@@ -222,7 +224,7 @@ export const variantPicker = ({
       [...(selectedVariant.fontColor as ThemeColors<"text">[])] ||
       (["text-neutral-900"] as ThemeColors<"text">[]),
     fontVariant: selectedVariant.fontVariant || "p-md",
-    fontWeight: selectedVariant.fontWeight || "font-regular",
+    fontWeight: fontWeight || selectedVariant.fontWeight || "font-regular",
     iconProps: selectedVariant.iconProps || {},
   }
 }
