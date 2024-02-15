@@ -5,7 +5,9 @@
       "@models/*": ["src/models/*"],
       "@utils/*": ["src/utils/*"],
       "@components/*": ["src/components/*"],
-      "@styles/*": ["src/styles/*"]
+      "@styles/*": ["src/styles/*"],
+      "@pages/*": ["src/pages/*"],
+      "@layouts/*": ["src/layouts/*"]
     },
     "target": "ES2020",
     "useDefineForClassFields": true,

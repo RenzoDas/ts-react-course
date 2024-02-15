@@ -1,6 +1,7 @@
 import { TextVariants, TextWeights } from "../Text/types"
 import { ThemeColors } from "@models/theme/color"
 import { IIconProps, IconVariantsProps } from "../Icon/types"
+import { DynamicRoutePaths } from "@models/routes/type"
 
 export type ButtonVariants =
   | "b-primary-lg"
@@ -45,4 +46,6 @@ export interface IButtonProps extends ButtonVariantProps {
   label?: string
   icon?: IIconProps["variant"]
   iconPosition?: IconPosition
+  isLink?: boolean
+  linkTo?: DynamicRoutePaths
 }

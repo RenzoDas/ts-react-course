@@ -8,18 +8,24 @@ export const CardProfile = ({
   title,
   subtitle,
   imageSrc,
+  imageSize,
   button,
   style = [""],
 }: CardVariantsProps) => {
   return (
-    <div className={classNames(["flex items-center gap-6 flex-col", ...style])}>
+    <div
+      className={classNames([
+        "flex items-center justify-center gap-2 flex-col",
+        ...style,
+      ])}
+    >
       <Image
         position="center"
         rounded="circle"
-        size="2xl"
+        size={imageSize}
         src={imageSrc || ""}
       />
-      <div>
+      <div className="flex flex-col items-center justify-center">
         <Text color={["text-primary-black"]} variant="p-md" weight="font-bold">
           {title}
         </Text>

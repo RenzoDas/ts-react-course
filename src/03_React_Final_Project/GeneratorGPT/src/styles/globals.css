@@ -7,3 +7,34 @@
 * {
   font-family: "Poppins", sans-serif;
 }
+
+.layout-main {
+  display: grid;
+  grid-template-areas:
+    "sidebar navbar"
+    "sidebar outlet";
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto 1fr;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.sidebar {
+  grid-area: sidebar;
+  height: 100%;
+  overflow: hidden;
+}
+
+.navbar {
+  grid-area: navbar;
+}
+
+.outlet {
+  grid-area: outlet;
+  overflow-y: auto;
+}
+
+.navbar,
+.outlet {
+  position: relative;
+}

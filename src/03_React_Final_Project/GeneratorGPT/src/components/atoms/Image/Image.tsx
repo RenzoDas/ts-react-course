@@ -19,7 +19,7 @@ export const Image = ({
       case "sm":
         return "rounded-sm"
       case "circle":
-        return "rounded-full"
+        return "rounded-full aspect-square"
       default:
         return ""
     }
@@ -45,18 +45,17 @@ export const Image = ({
   const sizePicker = (size: IImageProps["size"]) => {
     switch (size) {
       case "3xl":
-        return "w-[120px] h-[120px]"
+        return "max-w-[120px]"
       case "2xl":
-        return "w-[100px] h-[100px]"
+        return "max-w-[100px]"
       case "xl":
-        return "w-[80px] h-[80px]"
+        return "max-w-[80px]"
       case "lg":
-        return "w-[60px] h-[60px]"
+        return "max-w-[60px]"
       case "md":
-        return "w-[40px] h-[40px]"
+        return "max-w-[40px]"
       case "sm":
-        return "w-[20px] h-[20px]"
-
+        return "max-w-[20px]"
       default:
         ""
     }
@@ -71,7 +70,7 @@ export const Image = ({
         roundedStyle(rounded),
         positionStyle(position),
         sizePicker(size),
-        size ? "object-cover" : ""
+        size ? "object-cover" : "",
       )}
     />
   )

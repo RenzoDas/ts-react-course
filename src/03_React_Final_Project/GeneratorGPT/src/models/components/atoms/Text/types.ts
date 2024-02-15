@@ -18,6 +18,7 @@ export type TextVariantProps = {
   weight?: TextWeights
   size?: ThemeFonts[]
   color?: ThemeColors<"text">[]
+  align?: TextAlign
   style?: string[]
 }
 
@@ -37,6 +38,13 @@ export type TextWeights =
   | "font-semibold"
   | "font-regular"
   | "font-light"
+export type TextAlign =
+  | "text-left"
+  | "text-center"
+  | "text-right"
+  | "text-justify"
+  | "text-start"
+  | "text-end"
 
 export type ThemeFonts =
   | `text-${TextVariants}`

@@ -9,6 +9,7 @@ export const variantPicker = ({
   tag,
   weight,
   color,
+  align,
   style = [],
 }: ITextProps): Required<TextVariantProps> => {
   const textVariants: TextVariantDictionary = {
@@ -54,6 +55,7 @@ export const variantPicker = ({
     size: selectedVariant.size || ["text-p-md"],
     tag: tag || selectedVariant.tag || "p",
     weight: weight || selectedVariant.weight || "font-regular",
+    align: align || "text-left",
     color: color
       ? color
       : selectedVariant.color
