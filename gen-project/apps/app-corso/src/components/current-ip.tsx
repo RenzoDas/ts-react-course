@@ -4,13 +4,16 @@ const CurrentIp = ({ ip, country, city_name }: FrontendIp) => {
   return (
     <div className="ip">
       <div>
-        <strong>Your IP:</strong> {ip}
+        <strong>Your IP:</strong> <span id="data-ip">{ip}</span>
       </div>
       <div>
-        <strong>Country:</strong> {country.code}, {country.name}
+        <strong>Country:</strong>&nbsp;
+        <span id="data-country">
+          {country.code}, {country.name}
+        </span>
       </div>
-      <div>
-        <strong>City:</strong> {city_name}
+      <div id="data-city">
+        <strong>City:</strong> <span>{city_name}</span>
       </div>
     </div>
   )

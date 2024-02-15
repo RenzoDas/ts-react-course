@@ -8,7 +8,6 @@ import { BackendIp, FrontendIp } from "./types/ip"
 import { validateBackendIp } from "./validator"
 
 function App() {
-  // console.log(ipMock)
   const { isLoading, data, error } = useFetch<BackendIp, FrontendIp>({
     url: "/api",
     validator: validateBackendIp,

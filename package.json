@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.ts",
   "scripts": {
-    "test": "test"
+    "test": "cd apps/app-corso && jest"
   },
   "repository": {
     "type": "git",
