@@ -3,14 +3,17 @@ import { ipAdapter } from "./adapters"
 import CurrentIp from "./components/current-ip"
 import Map from "./components/map"
 import useFetch from "./hooks/use-fetch"
+import { ipMock } from "./mock/ip"
 import { BackendIp, FrontendIp } from "./types/ip"
 import { validateBackendIp } from "./validator"
 
 function App() {
+  // console.log(ipMock)
   const { isLoading, data, error } = useFetch<BackendIp, FrontendIp>({
     url: "/api",
     validator: validateBackendIp,
     adapter: ipAdapter,
+    mock: ipMock,
   })
 
   if (isLoading) return <div>Loading...</div>

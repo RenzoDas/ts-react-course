@@ -20,6 +20,7 @@ const useFetch = <I, O>({
   const [error, setError] = useState<Error | null>(null)
 
   useEffect(() => {
+    console.log(url)
     const fetchAsync = async () => {
       try {
         setIsLoading(true)

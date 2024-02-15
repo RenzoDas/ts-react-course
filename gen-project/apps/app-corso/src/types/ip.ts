@@ -8,7 +8,7 @@ export type BackendIp = {
   longitude: number
   zip_code: string
   time_zone: string
-  asn: number
+  asn: string
   as: string
   is_proxy: boolean
   message: string

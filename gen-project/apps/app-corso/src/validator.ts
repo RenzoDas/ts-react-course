@@ -12,7 +12,7 @@ const BackendIpCodec = t.type({
   longitude: t.number,
   zip_code: t.string,
   time_zone: t.string,
-  asn: t.number,
+  asn: t.string,
   as: t.string,
   is_proxy: t.boolean,
   message: t.string,
