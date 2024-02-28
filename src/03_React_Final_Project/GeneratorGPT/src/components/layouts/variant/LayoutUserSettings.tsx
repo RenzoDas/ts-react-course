@@ -1,11 +1,11 @@
 import { Sidebar } from "@components/organisms/Sidebar/Sidebar"
 import { Outlet } from "react-router-dom"
 
-export const AppLayout = () => {
+export const LayoutUserSettings = () => {
   return (
     <div className="layout-main">
       <div className="sidebar">
-        <Sidebar />
+        <Sidebar variant="SidebarUserSettings" />
       </div>
       <div className="navbar">
         <>Navbar</>

@@ -9,7 +9,6 @@ export const CardProfile = ({
   subtitle,
   imageSrc,
   imageSize,
-  button,
   style = [""],
 }: CardVariantsProps) => {
   return (
@@ -32,7 +31,20 @@ export const CardProfile = ({
         <Text variant="p-sm" weight="font-regular">
           {subtitle}
         </Text>
-        {button && <Button {...button} />}
+        <Button
+          variant="b-transparent-dark-md"
+          icon="home"
+          square
+          isLink
+          linkTo="/"
+        />
+        <Button
+          variant="b-transparent-dark-md"
+          icon="settings"
+          square
+          isLink
+          linkTo="/settings"
+        />
       </div>
     </div>
   )

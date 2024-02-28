@@ -7,6 +7,7 @@ export type IconVariants =
   | "settings"
   | "expand-close"
   | "expand-open"
+  | "home"
 
 export type IconVariantsProps = {
   size?: "lg" | "md" | "sm"

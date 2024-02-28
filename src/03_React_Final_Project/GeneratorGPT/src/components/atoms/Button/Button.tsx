@@ -46,14 +46,14 @@ export const Button = ({
         <Link
           to={linkTo as DynamicRoutePaths}
           className={classNames([full ? "w-full" : ""])}
-          onClick={() => onClick()}
+          onClick={onClick ? () => onClick() : undefined}
         >
           <InnerButton />
         </Link>
       ) : (
         <button
           className={classNames([full ? "w-full" : ""])}
-          onClick={() => onClick()}
+          onClick={onClick ? () => onClick() : undefined}
         >
           <InnerButton />
         </button>

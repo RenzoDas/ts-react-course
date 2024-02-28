@@ -42,7 +42,7 @@ export type IconPosition = "left" | "right"
 
 export interface IButtonProps extends ButtonVariantProps {
   variant: ButtonVariants
-  onClick: () => void
+  onClick?: () => void
   label?: string
   icon?: IIconProps["variant"]
   iconPosition?: IconPosition
